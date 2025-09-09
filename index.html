@@ -160,7 +160,7 @@
                 <h2 class="text-3xl font-bold mb-2" data-translate="contact_title">Контакти</h2>
                 <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
                 <div class="max-w-2xl mx-auto space-y-6">
-                     <div id="contact-info">
+                    <div id="contact-info" class="flex justify-center space-x-8">
                          <!-- Contact details will be dynamically inserted here -->
                      </div>
                 </div>
@@ -343,12 +343,12 @@
             "about_p3": "We value our reputation and, in accordance with contractual obligations, complete work on time, taking full responsibility for the implemented project. Our activities are aimed at meeting the reasonable requirements of the customer regarding the quality of work and labor protection.",
             "services_title": "Our Services",
             "services": [
-                { "title": "Road Construction", "description": "Будівництво та ремонт автомобільних доріг будь-якої складності.", "icon": "images/services/road_construction.png" },
-                { "title": "Hydraulic Structures", "description": "Будівництво хвостосховищ, дамб, гаток та захист територій від підтоплення.", "icon": "images/services/hydro_facilities.png" },
-                { "title": "Pipelines", "description": "Ремонт та будівництво трубопроводів різного діаметра та призначення.", "icon": "images/services/pipelines.png" },
-                { "title": "Metal Structures", "description": "Демонтаж, виготовлення та монтаж металоконструкцій.", "icon": "images/services/metal_structures.png" },
-                { "title": "Earthworks", "description": "Розкривні роботи в кар’єрах, риття котлованів та траншей.", "icon": "images/services/earthworks.png" },
-                { "title": "General Construction Works", "description": "Виконання повного спектру загальнобудівельних робіт.", "icon": "images/services/general_construction.png" }
+                { "title": "Road Construction", "description": "Construction and repair of roads of any complexity.", "icon": "images/services/road_construction.png" },
+                { "title": "Hydraulic Structures", "description": "Construction of tailings dams, dams, dikes, and protection of territories from flooding.", "icon": "images/services/hydro_facilities.png" },
+                { "title": "Pipelines", "description": "Repair and construction of pipelines of various diameters and purposes.", "icon": "images/services/pipelines.png" },
+                { "title": "Metal Structures", "description": "Dismantling, manufacturing, and installation of metal structures.", "icon": "images/services/metal_structures.png" },
+                { "title": "Earthworks", "description": "Overburden works in quarries, digging of pits and trenches.", "icon": "images/services/earthworks.png" },
+                { "title": "General Construction Works", "description": "Performing a full range of general construction works.", "icon": "images/services/general_construction.png" }
             ],
             "projects_title": "Completed Projects",
             "projects": [
@@ -596,9 +596,9 @@
             // Contact info
             const contactInfo = document.getElementById('contact-info');
             contactInfo.innerHTML = siteContent.contact_details.map(detail => `
-                <div class="inline-block mx-4">
+                <div class="text-center">
                     <div class="bg-gray-700 p-3 rounded-full inline-block">
-                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
+                        <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
                     </div>
                     <h4 class="text-lg font-semibold mt-2">${detail.label}</h4>
                     <p class="text-gray-300">${detail.is_link ? `<a href="${detail.href}" class="hover:text-blue-400 underline">${detail.value}</a>` : detail.value}</p>
