@@ -160,9 +160,12 @@
                 <h2 class="text-3xl font-bold mb-2" data-translate="contact_title">Контакти</h2>
                 <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
                 <div class="max-w-2xl mx-auto space-y-6">
-                    <div id="contact-info" class="flex justify-center space-x-8">
-                         <!-- Contact details will be dynamically inserted here -->
-                     </div>
+                    <div id="contact-info-wrapper" class="flex flex-col items-center space-y-8">
+                        <div id="contact-info-row1" class="flex justify-center">
+                            </div>
+                        <div id="contact-info-row2" class="flex flex-wrap justify-center gap-8">
+                            </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -593,17 +596,34 @@
                 </a>
             `).join('');
 
-            // Contact info
-            const contactInfo = document.getElementById('contact-info');
-            contactInfo.innerHTML = siteContent.contact_details.map(detail => `
-                <div class="text-center">
-                    <div class="bg-gray-700 p-3 rounded-full inline-block">
-                        <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
+            const contactInfoRow1 = document.getElementById('contact-info-row1');
+            const contactInfoRow2 = document.getElementById('contact-info-row2');
+
+            if (siteContent.contact_details && siteContent.contact_details.length > 0) {
+                const firstDetail = siteContent.contact_details[0];
+                
+                contactInfoRow1.innerHTML = `
+                    <div class="text-center w-64">
+                        <div class="bg-gray-700 p-3 rounded-full inline-block">
+                            <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${firstDetail.icon}"></path></svg>
+                        </div>
+                        <h4 class="text-lg font-semibold mt-2">${firstDetail.label}</h4>
+                        <p class="text-gray-300">${firstDetail.is_link ? `<a href="${firstDetail.href}" class="hover:text-blue-400 underline">${firstDetail.value}</a>` : firstDetail.value}</p>
                     </div>
-                    <h4 class="text-lg font-semibold mt-2">${detail.label}</h4>
-                    <p class="text-gray-300">${detail.is_link ? `<a href="${detail.href}" class="hover:text-blue-400 underline">${detail.value}</a>` : detail.value}</p>
-                </div>
-            `).join('');
+                `;
+
+                const otherDetails = siteContent.contact_details.slice(1);
+
+                contactInfoRow2.innerHTML = otherDetails.map(detail => `
+                    <div class="text-center w-64">
+                        <div class="bg-gray-700 p-3 rounded-full inline-block">
+                            <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
+                        </div>
+                        <h4 class="text-lg font-semibold mt-2">${detail.label}</h4>
+                        <p class="text-gray-300">${detail.is_link ? `<a href="${detail.href}" class="hover:text-blue-400 underline">${detail.value}</a>` : detail.value}</p>
+                    </div>
+                `).join('');
+            }
         };
         
         const changeLanguage = (lang) => {
