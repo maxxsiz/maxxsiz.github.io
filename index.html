@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТОВ "СТРОЙ ЮА" - Будівельна компанія</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .nav-link.active {
+            color: #3b82f6; /* blue-500 */
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary .arrow {
+            transition: transform 0.2s ease-in-out;
+        }
+        details[open] summary .arrow {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#about" class="text-2xl font-bold text-gray-800" data-translate="companyName">СТРОЙ ЮА</a>
+            
+            <div class="flex items-center">
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_about">Про нас</a>
+                    <a href="#services" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_services">Послуги</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_projects">Проєкти</a>
+                    <a href="#equipment" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_equipment">Техніка</a>
+                    <a href="#partners" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_partners">Партнери</a>
+                    <a href="#documents" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_documents">Документи</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_contact">Контакти</a>
+                </div>
+
+                <!-- Language Switcher -->
+                <div class="flex items-center space-x-2 ml-6">
+                    <button id="lang-ua" class="font-semibold text-sm">UA</button>
+                    <span class="text-gray-300">|</span>
+                    <button id="lang-en" class="text-gray-400 font-semibold text-sm">EN</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden ml-4">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#about" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_about">Про нас</a>
+            <a href="#services" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_services">Послуги</a>
+            <a href="#projects" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_projects">Проєкти</a>
+            <a href="#equipment" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_equipment">Техніка</a>
+            <a href="#partners" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_partners">Партнери</a>
+            <a href="#documents" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_documents">Документи</a>
+            <a href="#contact" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_contact">Контакти</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Us Section (New Home) -->
+        <section id="about" class="pt-20 pb-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://placehold.co/1920x1080/e0e7ff/a5b4fc?text=Фонове+зображення');">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate="hero_title">ТОВ "СТРОЙ ЮА"</h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8" data-translate="hero_subtitle">Надійність, досвід та якість у кожному проєкті</p>
+                    <div class="text-left text-gray-700 space-y-4 bg-white/70 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+                         <p data-translate="about_p1"></p>
+                         <p data-translate="about_p2"></p>
+                         <p data-translate="about_p3"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-translate="services_title">Наші Послуги</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Services will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-translate="projects_title">Виконані Проєкти</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                <div id="projects-container" class="space-y-16">
+                    <!-- Projects will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment Section -->
+        <section id="equipment" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-translate="equipment_title">Парк Техніки</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                <div id="equipment-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Equipment categories will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="partners" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-translate="partners_title">Наші Замовники та Партнери</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                <div id="partners-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+                     <!-- Partners will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-2" data-translate="documents_title">Дозвільна Документація</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                <div class="max-w-5xl mx-auto">
+                    <p class="text-center text-gray-600 mb-8" data-translate="documents_intro"></p>
+                    <div id="documents-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <!-- Document placeholders will be dynamically inserted here -->
+                    </div>
+                     <p class="mt-8 text-sm text-center text-gray-500" data-translate="documents_outro"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-800 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-2" data-translate="contact_title">Контакти</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
+                <div class="max-w-2xl mx-auto space-y-6">
+                     <div id="contact-info">
+                         <!-- Contact details will be dynamically inserted here -->
+                     </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="footer-year"></span> <span data-translate="companyName">ТОВ "СТРОЙ ЮА"</span>. <span data-translate="footer_rights">Всі права захищено.</span></p>
+        </div>
+    </footer>
+
+    <script>
+    // ########## START: SITE CONTENT #############
+    // Редагуйте весь текст сайту тут
+    const contentData = {
+        ua: {
+            "companyName": "ТОВ \"СТРОЙ ЮА\"",
+            "nav_about": "Про нас",
+            "nav_services": "Послуги",
+            "nav_projects": "Проєкти",
+            "nav_equipment": "Техніка",
+            "nav_partners": "Партнери",
+            "nav_documents": "Документи",
+            "nav_contact": "Контакти",
+            "hero_title": "ТОВ \"СТРОЙ ЮА\"",
+            "hero_subtitle": "Надійність, досвід та якість у кожному проєкті",
+            "about_p1": "Товариство з обмеженою відповідальністю «Строй ЮА» має величезний досвід у виконанні будівельно-монтажних і ремонтних робіт, власну виробничу базу, оснащену комплексом будівель (цехами, складами, офісом), сучасним автотранспортом, у тому числі технологічним, будівельними механізмами, матеріальними ресурсами, інструментом для виконання робіт тощо.",
+            "about_p2": "Найбільшого досвіду підприємство здобуло у будівництві хвостосховищ, золовідвалів, доріг, у розкривних роботах у кар'єрах під видобуток корисних копалин, у перевезенні сипких матеріалів, а також у видобутку, будівництві та ремонті пульпопроводів.",
+            "about_p3": "Ми цінуємо свою репутацію та відповідно до договірних зобов'язань виконуємо роботи вчасно, беремо на себе всю відповідальність за реалізований проєкт. Наша діяльність спрямована на виконання обґрунтованих вимог, що висуваються замовником щодо якості виконання робіт та охорони праці.",
+            "services_title": "Наші Послуги",
+            "services": [
+                { "title": "Будівництво доріг", "description": "Будівництво та ремонт автомобільних доріг будь-якої складності.", "icon": "M13 10V3L4 14h7v7l9-11h-7z" },
+                { "title": "Гідротехнічні споруди", "description": "Будівництво хвостосховищ, дамб, гаток та захист територій від підтоплення.", "icon": "M12 2.02c-5.51 0-9.98 4.47-9.98 9.98s4.47 9.98 9.98 9.98 9.98-4.47 9.98-9.98S17.51 2.02 12 2.02zM12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" },
+                { "title": "Трубопроводи", "description": "Ремонт та будівництво трубопроводів різного діаметра та призначення.", "icon": "M22 12h-4V8h4v4zm-6 0h-4V8h4v4zm-6 0H4V8h4v4z" },
+                { "title": "Металоконструкції", "description": "Демонтаж, виготовлення та монтаж металоконструкцій.", "icon": "M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" },
+                { "title": "Земляні роботи", "description": "Розкривні роботи в кар’єрах, риття котлованів та траншей.", "icon": "M18 8h-1V6h1v2zm-2 12H8v-2h8v2zm2-7.5c0-.8-.7-1.5-1.5-1.5S15 11.7 15 12.5v2c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-2zM4 6H3v2h1V6zm14-4H6v2h12V2z" },
+                { "title": "Загальнобудівельні роботи", "description": "Виконання повного спектру загальнобудівельних робіт.", "icon": "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" }
+            ],
+            "projects_title": "Виконані Проєкти",
+            "projects": [
+                { "title": "Співпраця з ПАТ «АрселорМіттал Кривий Ріг»", "description": ["За роки тривалої співпраці виконано робіт з будівництва понад 25 млн. м³ насипних гаток та гідротехнічних споруд для можливості виробництва концентрату.", "Змонтовано десятки кілометрів трубопроводів різного призначення та сотні тон металоконструкцій гідротехнічних споруд для забезпечення замкнутого виробничого циклу."], "img": ["https://placehold.co/600x400/334155/e2e8f0?text=АрселорМіттал+1", "https://placehold.co/600x400/334155/e2e8f0?text=АрселорМіттал+2", "https://placehold.co/1224x400/334155/e2e8f0?text=АрселорМіттал+3"] },
+                { "title": "Проєкти для компанії \"Метінвест\"", "description": ["Успішно виконані та продовжують виконуватися проєкти розкривних робіт та видобутку корисних копалин у кар'єрах ПрАТ \"Центральний ГЗК\" та ПрАТ \"ПІВНІЧНИЙ ГЗК\".", "За тривалу співпрацю видобуто та перевезено гірничої маси обсягом понад 10 млн. м³. Також здійснено ряд успішних проєктів будівництва гідротехнічних споруд."], "img": ["https://placehold.co/600x400/4b5563/e5e7eb?text=Метінвест+1", "https://placehold.co/600x400/4b5563/e5e7eb?text=Метінвест+2", "https://placehold.co/1224x400/4b5563/e5e7eb?text=Метінвест+3"] },
+                { "title": "Будівництво невибухових загороджень в Харківській області", "description": ["У 2024 році виконано комплекс робіт по улаштуванню системи невибухових загороджень, включаючи підвішування 225 000 м сталевих канатів, установку 72 000 м металевих загороджувальних конструкцій (єгоза), виготовлення та перевезення 87 000 шт. пірамід, а також створення 72 000 м протитанкових ровів."], "img": ["https://placehold.co/600x400/52525b/d1d5db?text=Загородження+1", "https://placehold.co/600x400/52525b/d1d5db?text=Загородження+2", "https://placehold.co/1224x400/52525b/d1d5db?text=Загородження+3"] },
+                { "title": "Будівництво для яхт-клубу \"Січ\"", "description": ["Підприємством виконано комплекс будівництва потоконапрямних гаток на р. Дніпро з розвиненою інфраструктурою для громадської організації «Дніпровський спортивно-парусний яхт-клуб \"Січ\"»."], "img": ["https://placehold.co/600x400/1e293b/94a3b8?text=Яхт-клуб+1", "https://placehold.co/600x400/1e293b/94a3b8?text=Яхт-клуб+2", "https://placehold.co/1224x400/1e293b/94a3b8?text=Яхт-клуб+3"] }
+            ],
+            "equipment_title": "Парк Техніки",
+            "equipment": [
+                {
+                    "category_name": "Спеціалізована техніка",
+                    "groups": [
+                        { "group_name": "Грунтові вібраційні котки", "items": [
+                            { "name": "JCB VM 132D", "qty": "1" }, { "name": "САТ CS76ХТ", "qty": "1" },
+                            { "name": "САТ СS68B", "qty": "1" }, { "name": "САТ CS74B", "qty": "1" }, { "name": "САТ CS78B", "qty": "1" }
+                        ]},
+                        { "group_name": "Екскаватори", "items": [
+                            { "name": "VOLVO EC250DL", "qty": "1" }, { "name": "VOLVO EC300DL", "qty": "1" },
+                            { "name": "VOLVO EC380DL", "qty": "1" }, { "name": "VOLVO EC480DL", "qty": "3" },
+                            { "name": "CATERPILLAR 374FL", "qty": "1" }, { "name": "CATERPILLAR 349", "qty": "4" },
+                            { "name": "CATERPILLAR 336GS", "qty": "2" }, { "name": "JСB 360LC", "qty": "4" },
+                            { "name": "JСB 330LC", "qty": "1" }, { "name": "JСВ 330ME", "qty": "1" }
+                        ]},
+                        { "group_name": "Екскаватори навантажувачі", "items": [
+                            { "name": "JСВ 3CX", "qty": "1" }, { "name": "CATERPILLAR 428F2", "qty": "1" }, { "name": "CATERPILLAR 434", "qty": "8" }
+                        ]},
+                        { "group_name": "Навантажувачі", "items": [
+                            { "name": "CATERPILLAR 966L", "qty": "1" }, { "name": "CATERPILLAR 980L", "qty": "1" }
+                        ]},
+                        { "group_name": "Бульдозери", "items": [
+                            { "name": "CATERPILLAR D6R", "qty": "5" }, { "name": "D65EX-15ΕΟ «ΚΟMATSU»", "qty": "1" },
+                            { "name": "CATERPILLAR D6RXL", "qty": "1" }, { "name": "CATERPILLAR D8R", "qty": "1" }, { "name": "CATERPILLAR D6R2", "qty": "8" }
+                        ]},
+                        { "group_name": "Автогрейдери та трубоукладачі", "items": [
+                            { "name": "Автогрейдер CATERPILLAR 160K", "qty": "1" }, { "name": "Автогрейдер CATERPILLAR 160H", "qty": "1" },
+                            { "name": "Автогрейдер CATERPILLAR 120M", "qty": "1" }, { "name": "Трубоукладач CATERPILLAR PL61", "qty": "2" }
+                        ]},
+                        { "group_name": "Автокрани та підйомники", "items": [
+                            { "name": "Автокран МАЗ КС45729", "qty": "1" }, { "name": "Автокран МАЗ КС55727", "qty": "1" },
+                            { "name": "Автокран GROVE RT540E", "qty": "1" }, { "name": "Автопідйомник АСП-КРВ-30", "qty": "1" }
+                        ]}
+                    ]
+                },
+                {
+                    "category_name": "Автомобільна техніка",
+                    "groups": [
+                        { "group_name": "Самоскиди", "items": [
+                            { "name": "MAN TGS 41.400", "qty": "5" }, { "name": "MAN TGS 40.400", "qty": "7" },
+                            { "name": "Mercedes-Benz Actros 4140", "qty": "4" }, { "name": "Mercedes-Benz Actros 4141", "qty": "35" },
+                            { "name": "Volvo FM", "qty": "37" }, { "name": "Volvo FMX", "qty": "7" }, { "name": "HOWO", "qty": "2" }
+                        ]},
+                        { "group_name": "Пасажирський та сервісний транспорт", "items": [
+                            { "name": "Автобус Мercedes-Benz Sprinter", "qty": "3" }, { "name": "Автобус загальний IVECO", "qty": "1" },
+                            { "name": "Автобус загальний ПАЗ 4234-04", "qty": "1" }, { "name": "Автобус загальний Renault", "qty": "1" },
+                            { "name": "Автобус Mercedes-Benz Sprinter 311 CDI", "qty": "1" }, { "name": "Renault TRAFIC", "qty": "3" },
+                            { "name": "Renault DUSTER", "qty": "3" }, { "name": "Сервісна машина Mercedes-Benz", "qty": "1" }, { "name": "Сервісна машина Fiat", "qty": "11" }
+                        ]},
+                        { "group_name": "Спеціалізований транспорт та обладнання", "items": [
+                            { "name": "КРАЗ спеціалізований фургон", "qty": "1" }, { "name": "СЗАП 932272", "qty": "1" },
+                            { "name": "КРАЗ 6510", "qty": "1" }, { "name": "ЗИЛ 131", "qty": "2" },
+                            { "name": "КАМАЗ 43101", "qty": "1" }, { "name": "TAD TRAILER 39-4", "qty": "1" },
+                            { "name": "УРАЛ 4320", "qty": "4" }, { "name": "Агрегат зварювальний", "qty": "21" },
+                            { "name": "Трубоукладач", "qty": "6" }, { "name": "Трактор", "qty": "2" }
+                        ]}
+                    ]
+                }
+            ],
+            "partners_title": "Наші Замовники та Партнери",
+            "partners": [
+                { "name": "Метінвест", "logo": "https://placehold.co/200x100/ffffff/333333?text=Метінвест" },
+                { "name": "АрселорМіттал Кривий Ріг", "logo": "https://placehold.co/200x100/ffffff/333333?text=ArcelorMittal" },
+                { "name": "Українська каолінова компанія", "logo": "https://placehold.co/200x100/ffffff/333333?text=УКК" },
+                { "name": "Вільногірський ДМК", "logo": "https://placehold.co/200x100/ffffff/333333?text=Вільногірський+ДМК" },
+                { "name": "Яхт-клуб \"Січ\"", "logo": "https://placehold.co/200x100/ffffff/333333?text=Яхт-клуб+\"Січ\"" }
+            ],
+            "documents_title": "Дозвільна Документація",
+            "documents_intro": "ТОВ «Строй ЮА» має всі необхідні дозвільні документи для здійснення своєї діяльності, що підтверджує нашу надійність та відповідність високим стандартам якості та безпеки.",
+            "documents_gallery": [
+                { "title": "Ліцензія", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Ліцензія", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Ліцензія" },
+                { "title": "Дозвіл №1", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Дозвіл+1", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Дозвіл+1" },
+                { "title": "Дозвіл №2", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Дозвіл+2", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Дозвіл+2" },
+                { "title": "Дозвіл №3", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Дозвіл+3", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Дозвіл+3" },
+                { "title": "Декларація №1", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Декларація+1", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Декларація+1" },
+                { "title": "Декларація №2", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Декларація+2", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Декларація+2" },
+                { "title": "Документ 7", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Документ+7", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Документ+7" },
+                { "title": "Документ 8", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Документ+8", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Документ+8" }
+            ],
+            "documents_outro": "Копії документів можуть бути надані за запитом.",
+            "contact_title": "Контакти",
+            "contact_details": [
+                { "label": "Адреса", "value": "50026, Дніпропетровська обл., м. Кривий Ріг, вул. Ангарська, 3-А", "icon": "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", "is_link": false },
+                { "label": "Телефон", "value": "+38 (067) 562-21-21", "icon": "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z", "is_link": true, "href": "tel:+380675622121" },
+                { "label": "Email", "value": "stroyua@i.ua", "icon": "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", "is_link": true, "href": "mailto:stroyua@i.ua" }
+            ],
+            "footer_rights": "Всі права захищено."
+        },
+        en: {
+            "companyName": "STROY UA LLC",
+            "nav_about": "About Us",
+            "nav_services": "Services",
+            "nav_projects": "Projects",
+            "nav_equipment": "Equipment",
+            "nav_partners": "Partners",
+            "nav_documents": "Documents",
+            "nav_contact": "Contact",
+            "hero_title": "STROY UA LLC",
+            "hero_subtitle": "Reliability, experience and quality in every project",
+            "about_p1": "Stroy UA LLC has vast experience in construction, installation, and repair works, its own production base equipped with a complex of buildings (workshops, warehouses, office), modern vehicles, including technological ones, construction machinery, material resources, and tools for work performance.",
+            "about_p2": "The company has gained the most experience in the construction of tailings dumps, ash dumps, roads, in overburden works in quarries for mineral extraction, in the transportation of bulk materials, as well as in the extraction, construction, and repair of pulp pipelines.",
+            "about_p3": "We value our reputation and, in accordance with contractual obligations, complete work on time, taking full responsibility for the implemented project. Our activities are aimed at meeting the reasonable requirements of the customer regarding the quality of work and labor protection.",
+            "services_title": "Our Services",
+            "services": [
+                { "title": "Road Construction", "description": "Construction and repair of roads of any complexity.", "icon": "M13 10V3L4 14h7v7l9-11h-7z" },
+                { "title": "Hydraulic Structures", "description": "Construction of tailings dams, dams, dikes, and protection of territories from flooding.", "icon": "M12 2.02c-5.51 0-9.98 4.47-9.98 9.98s4.47 9.98 9.98 9.98 9.98-4.47 9.98-9.98S17.51 2.02 12 2.02zM12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z" },
+                { "title": "Pipelines", "description": "Repair and construction of pipelines of various diameters and purposes.", "icon": "M22 12h-4V8h4v4zm-6 0h-4V8h4v4zm-6 0H4V8h4v4z" },
+                { "title": "Metal Structures", "description": "Dismantling, manufacturing, and installation of metal structures.", "icon": "M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" },
+                { "title": "Earthworks", "description": "Overburden works in quarries, digging of pits and trenches.", "icon": "M18 8h-1V6h1v2zm-2 12H8v-2h8v2zm2-7.5c0-.8-.7-1.5-1.5-1.5S15 11.7 15 12.5v2c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5v-2zM4 6H3v2h1V6zm14-4H6v2h12V2z" },
+                { "title": "General Construction Works", "description": "Performing a full range of general construction works.", "icon": "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" }
+            ],
+            "projects_title": "Completed Projects",
+            "projects": [
+                { "title": "Cooperation with PJSC ArcelorMittal Kryvyi Rih", "description": ["Over the years of long-term cooperation, more than 25 million m³ of embankment dams and hydraulic structures have been built to enable concentrate production.", "Tens of kilometers of pipelines for various purposes and hundreds of tons of metal structures for hydraulic facilities have been installed to ensure a closed production cycle."], "img": ["https://placehold.co/600x400/334155/e2e8f0?text=ArcelorMittal+1", "https://placehold.co/600x400/334155/e2e8f0?text=ArcelorMittal+2", "https://placehold.co/1224x400/334155/e2e8f0?text=ArcelorMittal+3"] },
+                { "title": "Projects for Metinvest Company", "description": ["Overburden and mineral extraction projects have been successfully completed and are ongoing in the quarries of PJSC Central GOK and PJSC Northern GOK.", "Over a long period of cooperation, more than 10 million m³ of rock mass have been extracted and transported. A number of successful hydraulic structure construction projects have also been carried out."], "img": ["https://placehold.co/600x400/4b5563/e5e7eb?text=Metinvest+1", "https://placehold.co/600x400/4b5563/e5e7eb?text=Metinvest+2", "https://placehold.co/1224x400/4b5563/e5e7eb?text=Metinvest+3"] },
+                { "title": "Construction of Non-Explosive Barriers in Kharkiv Region", "description": ["In 2024, a complex of works on the arrangement of a non-explosive barrier system was carried out, including the suspension of 225,000 m of steel ropes, the installation of 72,000 m of metal barrier structures (concertina wire), the production and transportation of 87,000 pyramids, and the creation of 72,000 m of anti-tank ditches."], "img": ["https://placehold.co/600x400/52525b/d1d5db?text=Barriers+1", "https://placehold.co/600x400/52525b/d1d5db?text=Barriers+2", "https://placehold.co/1224x400/52525b/d1d5db?text=Barriers+3"] },
+                { "title": "Construction for 'Sich' Yacht Club", "description": ["The company has completed a complex construction of flow-directing dikes on the Dnieper River with a developed infrastructure for the public organization 'Dnipro Sailing Yacht Club 'Sich'.'"], "img": ["https://placehold.co/600x400/1e293b/94a3b8?text=Yacht+Club+1", "https://placehold.co/600x400/1e293b/94a3b8?text=Yacht+Club+2", "https://placehold.co/1224x400/1e293b/94a3b8?text=Yacht+Club+3"] }
+            ],
+            "equipment_title": "Equipment Fleet",
+            "equipment": [
+                {
+                    "category_name": "Specialized Equipment",
+                    "groups": [
+                        { "group_name": "Vibratory Soil Compactors", "items": [
+                            { "name": "JCB VM 132D", "qty": "1" }, { "name": "CAT CS76XT", "qty": "1" },
+                            { "name": "CAT CS68B", "qty": "1" }, { "name": "CAT CS74B", "qty": "1" }, { "name": "CAT CS78B", "qty": "1" }
+                        ]},
+                        { "group_name": "Excavators", "items": [
+                            { "name": "VOLVO EC250DL", "qty": "1" }, { "name": "VOLVO EC300DL", "qty": "1" },
+                            { "name": "VOLVO EC380DL", "qty": "1" }, { "name": "VOLVO EC480DL", "qty": "3" },
+                            { "name": "CATERPILLAR 374FL", "qty": "1" }, { "name": "CATERPILLAR 349", "qty": "4" },
+                            { "name": "CATERPILLAR 336GS", "qty": "2" }, { "name": "JCB 360LC", "qty": "4" },
+                            { "name": "JCB 330LC", "qty": "1" }, { "name": "JCB 330ME", "qty": "1" }
+                        ]},
+                        { "group_name": "Backhoe Loaders", "items": [
+                            { "name": "JCB 3CX", "qty": "1" }, { "name": "CATERPILLAR 428F2", "qty": "1" }, { "name": "CATERPILLAR 434", "qty": "8" }
+                        ]},
+                        { "group_name": "Loaders", "items": [
+                            { "name": "CATERPILLAR 966L", "qty": "1" }, { "name": "CATERPILLAR 980L", "qty": "1" }
+                        ]},
+                        { "group_name": "Bulldozers", "items": [
+                            { "name": "CATERPILLAR D6R", "qty": "5" }, { "name": "D65EX-15ΕΟ 'ΚΟMATSU'", "qty": "1" },
+                            { "name": "CATERPILLAR D6RXL", "qty": "1" }, { "name": "CATERPILLAR D8R", "qty": "1" }, { "name": "CATERPILLAR D6R2", "qty": "8" }
+                        ]},
+                        { "group_name": "Motor Graders & Pipelayers", "items": [
+                            { "name": "Motor Grader CATERPILLAR 160K", "qty": "1" }, { "name": "Motor Grader CATERPILLAR 160H", "qty": "1" },
+                            { "name": "Motor Grader CATERPILLAR 120M", "qty": "1" }, { "name": "Pipelayer CATERPILLAR PL61", "qty": "2" }
+                        ]},
+                        { "group_name": "Cranes & Lifts", "items": [
+                            { "name": "Crane Truck MAZ KS45729", "qty": "1" }, { "name": "Crane Truck MAZ KS55727", "qty": "1" },
+                            { "name": "Crane Truck GROVE RT540E", "qty": "1" }, { "name": "Aerial Lift ASP-KRV-30", "qty": "1" }
+                        ]}
+                    ]
+                },
+                {
+                    "category_name": "Automotive Vehicles",
+                    "groups": [
+                        { "group_name": "Dump Trucks", "items": [
+                            { "name": "MAN TGS 41.400", "qty": "5" }, { "name": "MAN TGS 40.400", "qty": "7" },
+                            { "name": "Mercedes-Benz Actros 4140", "qty": "4" }, { "name": "Mercedes-Benz Actros 4141", "qty": "35" },
+                            { "name": "Volvo FM", "qty": "37" }, { "name": "Volvo FMX", "qty": "7" }, { "name": "HOWO", "qty": "2" }
+                        ]},
+                        { "group_name": "Passenger & Service Transport", "items": [
+                            { "name": "Bus Mercedes-Benz Sprinter", "qty": "3" }, { "name": "General Bus IVECO", "qty": "1" },
+                            { "name": "General Bus PAZ 4234-04", "qty": "1" }, { "name": "General Bus Renault", "qty": "1" },
+                            { "name": "Bus Mercedes-Benz Sprinter 311 CDI", "qty": "1" }, { "name": "Renault TRAFIC", "qty": "3" },
+                            { "name": "Renault DUSTER", "qty": "3" }, { "name": "Service vehicle Mercedes-Benz", "qty": "1" }, { "name": "Service vehicle Fiat", "qty": "11" }
+                        ]},
+                        { "group_name": "Specialized Transport & Equipment", "items": [
+                            { "name": "KRAZ specialized van", "qty": "1" }, { "name": "SZAP 932272", "qty": "1" },
+                            { "name": "KRAZ 6510", "qty": "1" }, { "name": "ZIL 131", "qty": "2" },
+                            { "name": "KAMAZ 43101", "qty": "1" }, { "name": "TAD TRAILER 39-4", "qty": "1" },
+                            { "name": "URAL 4320", "qty": "4" }, { "name": "Welding unit", "qty": "21" },
+                            { "name": "Pipelayer", "qty": "6" }, { "name": "Tractor", "qty": "2" }
+                        ]}
+                    ]
+                }
+            ],
+            "partners_title": "Our Clients and Partners",
+            "partners": [
+                { "name": "Metinvest", "logo": "https://placehold.co/200x100/ffffff/333333?text=Metinvest" },
+                { "name": "ArcelorMittal Kryvyi Rih", "logo": "https://placehold.co/200x100/ffffff/333333?text=ArcelorMittal" },
+                { "name": "Ukrainian Kaolin Company", "logo": "https://placehold.co/200x100/ffffff/333333?text=UKC" },
+                { "name": "Vilnohirsk SMMC", "logo": "https://placehold.co/200x100/ffffff/333333?text=Vilnohirsk+SMMC" },
+                { "name": "Yacht Club 'Sich'", "logo": "https://placehold.co/200x100/ffffff/333333?text=Yacht+Club+'Sich'" }
+            ],
+            "documents_title": "Permits and Licenses",
+            "documents_intro": "Stroy UA LLC has all the necessary permits for its activities, which confirms our reliability and compliance with high standards of quality and safety.",
+            "documents_gallery": [
+                { "title": "License", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=License", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=License" },
+                { "title": "Permit #1", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Permit+1", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Permit+1" },
+                { "title": "Permit #2", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Permit+2", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Permit+2" },
+                { "title": "Permit #3", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Permit+3", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Permit+3" },
+                { "title": "Declaration #1", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Declaration+1", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Declaration+1" },
+                { "title": "Declaration #2", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Declaration+2", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Declaration+2" },
+                { "title": "Document 7", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Document+7", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Document+7" },
+                { "title": "Document 8", "thumbnail": "https://placehold.co/200x280/eef2ff/4338ca?text=Document+8", "full_image": "https://placehold.co/800x1120/eef2ff/4338ca?text=Document+8" }
+            ],
+            "documents_outro": "Copies of the documents can be provided upon request.",
+            "contact_title": "Contact",
+            "contact_details": [
+                { "label": "Address", "value": "3-A Angarska St, Kryvyi Rih, Dnipropetrovsk Oblast, 50026", "icon": "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", "is_link": false },
+                { "label": "Phone", "value": "+38 (067) 562-21-21", "icon": "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z", "is_link": true, "href": "tel:+380675622121" },
+                { "label": "Email", "value": "stroyua@i.ua", "icon": "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", "is_link": true, "href": "mailto:stroyua@i.ua" }
+            ],
+            "footer_rights": "All rights reserved."
+        }
+    };
+    // ########## END: SITE CONTENT #############
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentLang = 'ua';
+        let siteContent = {};
+
+        const btnUa = document.getElementById('lang-ua');
+        const btnEn = document.getElementById('lang-en');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('header a[href^="#"]');
+
+        const translatePage = () => {
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (siteContent[key]) {
+                    el.innerHTML = siteContent[key];
+                }
+            });
+            document.documentElement.lang = currentLang;
+            updateDynamicContent();
+            updateLanguageButtons();
+        };
+
+        const updateLanguageButtons = () => {
+             if (currentLang === 'ua') {
+                btnUa.classList.remove('text-gray-400');
+                btnUa.classList.add('text-black');
+                btnEn.classList.remove('text-black');
+                btnEn.classList.add('text-gray-400');
+            } else {
+                btnEn.classList.remove('text-gray-400');
+                btnEn.classList.add('text-black');
+                btnUa.classList.remove('text-black');
+                btnUa.classList.add('text-gray-400');
+            }
+        };
+
+        const updateDynamicContent = () => {
+            if (!siteContent.services) return;
+
+            // Services
+            const servicesGrid = document.getElementById('services-grid');
+            servicesGrid.innerHTML = siteContent.services.map(service => `
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.icon}"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">${service.title}</h3>
+                    <p class="text-gray-600">${service.description}</p>
+                </div>
+            `).join('');
+            
+            // Projects
+            const projectsContainer = document.getElementById('projects-container');
+            projectsContainer.innerHTML = siteContent.projects.map(project => `
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">${project.title}</h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="text-gray-600 space-y-3">${project.description.map(p => `<p>${p}</p>`).join('')}</div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                            <img src="${project.img[0]}" alt="${project.title} photo 1" class="w-full h-48 object-cover rounded-lg">
+                            <img src="${project.img[1]}" alt="${project.title} photo 2" class="w-full h-48 object-cover rounded-lg">
+                            <img src="${project.img[2]}" alt="${project.title} photo 3" class="w-full h-48 object-cover rounded-lg sm:col-span-2">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Equipment
+            const equipmentContainer = document.getElementById('equipment-container');
+            equipmentContainer.innerHTML = siteContent.equipment.map(category => `
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-center">${category.category_name}</h3>
+                    <div class="space-y-2">
+                        ${category.groups.map(group => `
+                            <details class="bg-gray-100 rounded-lg overflow-hidden">
+                                <summary class="p-4 cursor-pointer flex justify-between items-center font-semibold">
+                                    <span>${group.group_name}</span>
+                                    <svg class="w-5 h-5 arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </summary>
+                                <div class="bg-white border-t border-gray-200">
+                                    <table class="min-w-full text-sm">
+                                        <tbody>
+                                            ${group.items.map((item, index) => `
+                                                <tr class="${index % 2 === 0 ? 'bg-gray-50' : ''}">
+                                                    <td class="px-4 py-2">${item.name}</td>
+                                                    <td class="px-4 py-2 text-right font-medium">${item.qty}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </details>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            // Partners
+            const partnersGrid = document.getElementById('partners-grid');
+            partnersGrid.innerHTML = siteContent.partners.map(partner => `
+                <div class="flex justify-center items-center p-4 bg-gray-100 rounded-lg h-24 filter grayscale hover:grayscale-0 transition duration-300">
+                    <img src="${partner.logo}" alt="${partner.name}" class="max-h-16">
+                </div>
+            `).join('');
+            
+            // Documents
+            const documentsGrid = document.getElementById('documents-grid');
+            documentsGrid.innerHTML = siteContent.documents_gallery.map(doc => `
+                <a href="${doc.full_image}" target="_blank" class="block border rounded-lg overflow-hidden group">
+                    <img src="${doc.thumbnail}" alt="${doc.title}" class="w-full h-32 object-cover transition duration-300 group-hover:scale-110">
+                    <p class="text-xs p-2 bg-gray-50 truncate">${doc.title}</p>
+                </a>
+            `).join('');
+
+            // Contact info
+            const contactInfo = document.getElementById('contact-info');
+            contactInfo.innerHTML = siteContent.contact_details.map(detail => `
+                <div class="inline-block mx-4">
+                    <div class="bg-gray-700 p-3 rounded-full inline-block">
+                       <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
+                    </div>
+                    <h4 class="text-lg font-semibold mt-2">${detail.label}</h4>
+                    <p class="text-gray-300">${detail.is_link ? `<a href="${detail.href}" class="hover:text-blue-400 underline">${detail.value}</a>` : detail.value}</p>
+                </div>
+            `).join('');
+        };
+        
+        const changeLanguage = (lang) => {
+            currentLang = lang;
+            siteContent = contentData[lang];
+            translatePage();
+        };
+
+        btnUa.addEventListener('click', () => changeLanguage('ua'));
+        btnEn.addEventListener('click', () => changeLanguage('en'));
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Active link highlighting on scroll
+        const sections = document.querySelectorAll('main section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+
+        sections.forEach(section => observer.observe(section));
+
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // Initial load
+        changeLanguage('ua');
+    });
+    </script>
+</body>
+</html>
