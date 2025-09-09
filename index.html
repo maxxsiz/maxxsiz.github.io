@@ -81,7 +81,7 @@
 
     <main>
         <!-- About Us Section (New Home) -->
-        <section id="about" class="pt-20 pb-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 'images/background.png';">
+        <section id="about" class="pt-20 pb-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/background.png');">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
                     <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate="hero_title">ТОВ "СТРОЙ ЮА"</h1>
@@ -502,7 +502,7 @@
         };
 
         const updateLanguageButtons = () => {
-             if (currentLang === 'ua') {
+            if (currentLang === 'ua') {
                 btnUa.classList.remove('text-gray-400');
                 btnUa.classList.add('text-black');
                 btnEn.classList.remove('text-black');
@@ -538,9 +538,9 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div class="text-gray-600 space-y-3">${project.description.map(p => `<p>${p}</p>`).join('')}</div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-                            <img src="${project.img[0]}" alt="${project.title} photo 1" class="w-full h-48 object-cover rounded-lg">
-                            <img src="${project.img[1]}" alt="${project.title} photo 2" class="w-full h-48 object-cover rounded-lg">
-                            <img src="${project.img[2]}" alt="${project.title} photo 3" class="w-full h-48 object-cover rounded-lg sm:col-span-2">
+                            ${project.img.map((imageSrc, index) => `
+                                <img src="${imageSrc}" alt="${project.title} photo ${index + 1}" class="w-full h-48 object-cover rounded-lg">
+                            `).join('')}
                         </div>
                     </div>
                 </div>
@@ -598,7 +598,7 @@
             contactInfo.innerHTML = siteContent.contact_details.map(detail => `
                 <div class="inline-block mx-4">
                     <div class="bg-gray-700 p-3 rounded-full inline-block">
-                       <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
+                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="${detail.icon}"></path></svg>
                     </div>
                     <h4 class="text-lg font-semibold mt-2">${detail.label}</h4>
                     <p class="text-gray-300">${detail.is_link ? `<a href="${detail.href}" class="hover:text-blue-400 underline">${detail.value}</a>` : detail.value}</p>
