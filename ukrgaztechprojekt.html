@@ -30,21 +30,46 @@
         details[open] summary .arrow {
             transform: rotate(90deg);
         }
+
+        /* --- Animations --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item-left {
+            transform: translateX(-20px);
+        }
+        .timeline-item-right {
+            transform: translateX(20px);
+        }
+        .timeline-item.is-visible {
+             transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#about" class="text-2xl font-bold text-gray-800" data-translate="companyName">УКРГАЗТЕХПРОЕКТ</a>
+            <a href="#about" class="text-2xl font-bold text-gray-800 flex items-center gap-x-3 transition-transform duration-300 hover:scale-105" data-translate="companyName">
+                <svg class="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                </svg>
+                УКРГАЗТЕХПРОЕКТ
+            </a>
             
             <div class="flex items-center">
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#about" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_about">Про нас</a>
-                    <a href="#directions" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_directions">Напрями діяльності</a>
-                    <a href="#projects" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_projects">Виконані роботи</a>
-                    <a href="#clients" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_clients">Наші клієнти</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500 transition duration-300" data-translate="nav_contact">Контакти</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-blue-500 transition-transform duration-300 hover:scale-110" data-translate="nav_about">Про нас</a>
+                    <a href="#directions" class="nav-link text-gray-600 hover:text-blue-500 transition-transform duration-300 hover:scale-110" data-translate="nav_directions">Напрями діяльності</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-blue-500 transition-transform duration-300 hover:scale-110" data-translate="nav_projects">Виконані роботи</a>
+                    <a href="#clients" class="nav-link text-gray-600 hover:text-blue-500 transition-transform duration-300 hover:scale-110" data-translate="nav_clients">Наші клієнти</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-blue-500 transition-transform duration-300 hover:scale-110" data-translate="nav_contact">Контакти</a>
                 </div>
 
                 <div class="flex items-center space-x-2 ml-6">
@@ -71,12 +96,12 @@
     </header>
 
     <main>
-        <section id="about" class="pt-20 pb-20 bg-gray-50">
+        <section id="about" class="pt-20 pb-20 bg-gray-50 overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4" data-translate="hero_title">ТОВ "УКРГАЗТЕХПРОЕКТ"</h1>
-                    <p class="text-lg md:text-xl text-gray-600 mb-8" data-translate="hero_subtitle"></p>
-                    <div class="text-left text-gray-700 space-y-4 bg-white p-8 rounded-lg shadow-lg">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal-on-scroll" data-translate="hero_title">ТОВ "УКРГАЗТЕХПРОЕКТ"</h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 reveal-on-scroll" data-translate="hero_subtitle"></p>
+                    <div class="text-left text-gray-700 space-y-4 bg-white p-8 rounded-lg shadow-lg reveal-on-scroll">
                          <p data-translate="about_p1"></p>
                          <p data-translate="about_p2"></p>
                     </div>
@@ -84,38 +109,46 @@
             </div>
         </section>
 
-        <section id="directions" class="py-20 bg-white">
+        <section id="directions" class="py-20 bg-white overflow-hidden">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-2" data-translate="directions_title">Основні Напрями Діяльності</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                <div class="reveal-on-scroll">
+                    <h2 class="text-3xl font-bold text-center mb-2" data-translate="directions_title">Основні Напрями Діяльності</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                </div>
                 <div id="directions-container" class="space-y-12">
                      </div>
             </div>
         </section>
 
-        <section id="projects" class="py-20">
+        <section id="projects" class="py-20 overflow-hidden">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-2" data-translate="projects_title">Виконані Роботи</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
-                <div id="projects-list" class="max-w-4xl mx-auto space-y-4">
-                     </div>
-            </div>
-        </section>
-
-        <section id="clients" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-2" data-translate="clients_title">Наші Клієнти</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
-                <div id="clients-list" class="max-w-4xl mx-auto text-center text-lg text-gray-600">
+                 <div class="reveal-on-scroll">
+                    <h2 class="text-3xl font-bold text-center mb-2" data-translate="projects_title">Виконані Роботи</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                </div>
+                <div id="projects-list" class="relative max-w-4xl mx-auto">
                     </div>
             </div>
         </section>
 
-        <section id="contact" class="py-20 bg-gray-800 text-white">
+        <section id="clients" class="py-20 bg-white overflow-hidden">
+            <div class="container mx-auto px-6">
+                 <div class="reveal-on-scroll">
+                    <h2 class="text-3xl font-bold text-center mb-2" data-translate="clients_title">Наші Клієнти</h2>
+                    <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
+                </div>
+                <div id="clients-list" class="max-w-5xl mx-auto">
+                    </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-gray-800 text-white overflow-hidden">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-2" data-translate="contact_title">Контакти</h2>
-                <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
-                <div class="max-w-2xl mx-auto space-y-6">
+                <div class="reveal-on-scroll">
+                    <h2 class="text-3xl font-bold mb-2" data-translate="contact_title">Контакти</h2>
+                    <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
+                </div>
+                <div class="max-w-2xl mx-auto space-y-6 reveal-on-scroll">
                     <div id="contact-info-wrapper" class="flex flex-col items-center space-y-8">
                         <div id="contact-info-row1" class="flex justify-center">
                             </div>
@@ -147,7 +180,7 @@
             "hero_title": "ТОВ \"УКРГАЗТЕХПРОЕКТ\"",
             "hero_subtitle": "Багатопрофільна інжинірингова і торговельна компанія",
             "about_p1": "ТОВ \"УКРГАЗТЕХПРОЕКТ\" було зареєстроване 20 жовтня 2008 року. З моменту заснування компанія займалась інжиніринговою діяльністю, а згодом розширила сферу діяльності. Наразі ми є постачальником ресурсів для нафтогазового та енергетичного сектору, а також для великих промислових підприємств.",
-            "about_p2": "Наша компанія поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Ми прагнемо бути надійним партнером у розвитку енергетичного потенціалу країни та забезпечувати сталий розвиток галузі шляхом впровадження інноваційних, високотехнологічних та екологічно безпечних рішень.]",
+            "about_p2": "Наша компанія поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Ми прагнемо бути надійним партнером у розвитку енергетичного потенціалу країни та забезпечувати сталий розвиток галузі шляхом впровадження інноваційних, високотехнологічних та екологічно безпечних рішень.",
             "directions_title": "Основні Напрями Діяльності",
             "directions": [
                 {"title": "Науково-виробнича діяльність", "description": "Ми перетворюємо наукові ідеї на реальні технології, продукти та послуги. Наша діяльність включає проведення досліджень, розробку інноваційних технологій, створення прототипів, їх тестування та впровадження у виробництво."},
@@ -157,12 +190,11 @@
                 {"title": "Консультування", "description": "Надання консультацій у сфері комерційної діяльності, технологій, бухгалтерського обліку й аудиту."}
             ],
             "projects_title": "Виконані Роботи",
-            "projects_intro": "Ми маємо багаторічний досвід співпраці з провідними підприємствами, надаючи широкий спектр науково-технічних та консультаційних послуг. [cite_start]Серед наших клієнтів ПАТ \"Укртрансгаз\", ДАТ “Чорноморнафтогаз” та інші.",
             "projects": [
                 {"year": 2013, "description": "Дослідження та розробки в галузі геодезії і розробки корисних копалин ('Регламент по контролю за експлуатацією та герметичністю Глібовського ПСГ') – для ДАТ \"ЧОРНОМОРНАФТОГАЗ\"."},
-                {"year": 2012, "description": "Комплексні інженерні послуги з авторського нагляду за експлуатацією ПСГ УМГ \"Київтрансгаз\". [cite: 93]"},
+                {"year": 2012, "description": "Комплексні інженерні послуги з авторського нагляду за експлуатацією ПСГ УМГ \"Київтрансгаз\"."},
                 {"year": 2012, "description": "Консультативні послуги щодо оптимізації схеми регулювання відбирання/закачування газу з Вергунського та Краснопопівського ПСГ – для Філії \"УМГ \"Донбастрансгаз\"."},
-                {"year": 2012, "description": "Авторський нагляд за експлуатацією ПСГ УМГ \"Донбастрансгаз\". [cite: 96]"},
+                {"year": 2012, "description": "Авторський нагляд за експлуатацією ПСГ УМГ \"Донбастрансгаз\"."},
                 {"year": 2012, "description": "Розроблення положення про регламент з контролю за експлуатацією пластових систем ПСГ – для АТ \"Укртрансгаз\"."},
                 {"year": 2011, "description": "Аналіз експлуатації пластових систем Угерського ПСГ – для Філії \"УМГ \"Львівтрансгаз\"."},
                 {"year": 2011, "description": "Авторський нагляд за експлуатацією підземних сховищ газу УМГ \"Донбастрансгаз\"."},
@@ -171,31 +203,32 @@
             ],
             "clients_title": "Наші Клієнти",
             "clients": [
-                "ПАТ \"Укртрансгаз\"",
-                "ДАТ “Чорноморнафтогаз”",
-                "Філія \"УМГ \"Київтрансгаз\"",
-                "Філія \"УМГ \"Донбастрансгаз\"",
-                "Філія \"УМГ \"Львівтрансгаз\""
+                { "name": "ПАТ \"Укртрансгаз\"", "icon": "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" }, // Placeholder Icon
+                { "name": "ДАТ “Чорноморнафтогаз”", "icon": "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" }, // Placeholder Icon
+                { "name": "Філія \"УМГ \"Київтрансгаз\"", "icon": "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" }, // Placeholder Icon
+                { "name": "Філія \"УМГ \"Донбастрансгаз\"", "icon": "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" }, // Placeholder Icon
+                { "name": "Філія \"УМГ \"Львівтрансгаз\"", "icon": "M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z" } // Placeholder Icon
             ],
             "contact_title": "Контакти",
             "contact_details": [
                 { "label": "Адреса", "value": "04107, м. Київ, вул. Підгірна/Татарська, 3/7", "icon": "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", "is_link": false },
                 { "label": "ЄДРПОУ", "value": "36215848", "icon": "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", "is_link": false },
-                { "label": "МФО", "value": "380775", "icon": "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", "is_link": false }
+                { "label": "МФО", "value": "380775", "icon": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z", "is_link": false }
             ],
             "footer_rights": "Всі права захищено."
         },
         en: {
+            // ENGLISH TRANSLATIONS (ABBREVIATED FOR BREVITY)
             "companyName": "UKRGAZTEKHPROEKT",
             "nav_about": "About Us",
-            "nav_directions": "Directions of Activity",
-            "nav_projects": "Completed Works",
-            "nav_clients": "Our Clients",
+            "nav_directions": "Directions",
+            "nav_projects": "Works",
+            "nav_clients": "Clients",
             "nav_contact": "Contact",
             "hero_title": "\"UKRGAZTEKHPROEKT\" LLC",
             "hero_subtitle": "Multifaceted engineering and trading company",
-            "about_p1": "\"UKRGAZTEKHPROEKT\" LLC was registered on October 20, 2008. From its founding, the company was engaged in engineering activities, and later expanded its scope. [cite_start]We are now a supplier of resources for the oil and gas and energy sectors, as well as for large industrial enterprises.",
-            "about_p2": "Our company combines research and development, experimental design, and production activities. [cite: 49] [cite_start]We aim to be a reliable partner in developing the country's energy potential and ensuring the sustainable development of the industry by implementing innovative, high-tech, and environmentally safe solutions.",
+            "about_p1": "\"UKRGAZTEKHPROEKT\" LLC was registered on October 20, 2008. From its founding, the company was engaged in engineering activities, and later expanded its scope. We are now a supplier of resources for the oil and gas and energy sectors, as well as for large industrial enterprises.",
+            "about_p2": "Our company combines research and development, experimental design, and production activities. We aim to be a reliable partner in developing the country's energy potential and ensuring the sustainable development of the industry by implementing innovative, high-tech, and environmentally safe solutions.",
             "directions_title": "Main Directions of Activity",
             "directions": [
                 {"title": "Scientific and Production Activity", "description": "We transform scientific ideas into real technologies, products, and services. Our work includes conducting research, developing innovative technologies, creating prototypes, testing them, and implementing them into production."},
@@ -205,36 +238,34 @@
                 {"title": "Consulting", "description": "Providing consultations on commercial activities, technologies, accounting, and auditing."}
             ],
             "projects_title": "Completed Works",
-            "projects_intro": "We have many years of experience collaborating with leading enterprises, providing a wide range of scientific, technical, and consulting services. [cite_start]Our clients include PJSC \"Ukrtransgaz\", JSC “Chornomornaftogaz”, and others.",
-            "projects": [
-                {"year": 2013, "description": "Research and development in the field of geodesy and mineral extraction ('Regulations on control over the operation and tightness of the Hlibivske UGS') – for JSC \"CHORNOMORNAFTOHAZ\"."},
-                {"year": 2012, "description": "Comprehensive engineering services for author's supervision of UGS operation for the UMG \"Kyivtransgaz\" branch. [cite: 93]"},
-                {"year": 2012, "description": "Consulting services on optimizing the gas withdrawal/injection scheme for the Vergunsk and Krasnopopivske UGS – for the \"Donbastransgaz\" UMG branch."},
-                {"year": 2012, "description": "Author's supervision of UGS operation for the UMG \"Donbastransgaz\" branch. [cite: 96]"},
+             "projects": [
+                {"year": 2013, "description": "R&D in geodesy and mineral extraction ('Regulations on control over the operation and tightness of the Hlibivske UGS') – for JSC \"CHORNOMORNAFTOHAZ\"."},
+                {"year": 2012, "description": "Comprehensive engineering services for author's supervision of UGS operation for the UMG \"Kyivtransgaz\" branch."},
+                {"year": 2012, "description": "Consulting on optimizing gas withdrawal/injection for Vergunsk and Krasnopopivske UGS – for \"Donbastransgaz\" UMG branch."},
+                {"year": 2012, "description": "Author's supervision of UGS operation for the UMG \"Donbastransgaz\" branch."},
                 {"year": 2012, "description": "Development of a regulation on the control of the operation of UGS reservoir systems – for JSC \"Ukrtransgaz\"."},
                 {"year": 2011, "description": "Analysis of the operation of the Uhery UGS reservoir systems – for the \"Lvivtransgaz\" UMG branch."},
-                {"year": 2011, "description": "Author's supervision of the operation of underground gas storages for the \"Donbastransgaz\" UMG branch."},
+                {"year": 2011, "description": "Author's supervision of underground gas storages for the \"Donbastransgaz\" UMG branch."},
                 {"year": 2010, "description": "Development of technological regulations for controlling the operation and tightness of UGS – for the \"Kyivtransgaz\" UMG branch."},
                 {"year": 2009, "description": "Author's supervision of UGS operation for the \"Kyivtransgaz\" UMG branch (Chervonopartyzanske, Solokhivske, Olyshivske UGS)."}
             ],
             "clients_title": "Our Clients",
             "clients": [
-                "PJSC \"Ukrtransgaz\"",
-                "JSC “Chornomornaftogaz”",
-                "Branch \"UMG \"Kyivtransgaz\"",
-                "Branch \"UMG \"Donbastransgaz\"",
-               "Branch \"UMG \"Lvivtransgaz\""
+                { "name": "PJSC \"Ukrtransgaz\"", "icon": "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" },
+                { "name": "JSC “Chornomornaftogaz”", "icon": "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" },
+                { "name": "Branch \"UMG \"Kyivtransgaz\"", "icon": "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" },
+                { "name": "Branch \"UMG \"Donbastransgaz\"", "icon": "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" },
+                { "name": "Branch \"UMG \"Lvivtransgaz\"", "icon": "M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z" }
             ],
             "contact_title": "Contact",
-            "contact_details": [
+             "contact_details": [
                 { "label": "Address", "value": "3/7 Pidhirna/Tatarska St, Kyiv, 04107", "icon": "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z", "is_link": false },
                 { "label": "EDRPOU", "value": "36215848", "icon": "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", "is_link": false },
-                { "label": "MFO", "value": "380775", "icon": "M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z", "is_link": false }
+                { "label": "MFO", "value": "380775", "icon": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z", "is_link": false }
             ],
             "footer_rights": "All rights reserved."
         }
     };
-
 
     document.addEventListener('DOMContentLoaded', () => {
         let currentLang = 'ua';
@@ -249,7 +280,7 @@
         const translatePage = () => {
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
-                if (siteContent[key]) {
+                if (siteContent[key] && typeof siteContent[key] === 'string') {
                     el.innerHTML = siteContent[key];
                 }
             });
@@ -278,29 +309,44 @@
             // Directions
             const directionsContainer = document.getElementById('directions-container');
             directionsContainer.innerHTML = siteContent.directions.map(direction => `
-                <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="bg-white p-8 rounded-lg shadow-lg reveal-on-scroll transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                     <h3 class="text-2xl font-bold mb-4">${direction.title}</h3>
                     <p class="text-gray-600">${direction.description}</p>
                 </div>
             `).join('');
 
-            // Projects
+            // Projects - TIMELINE
             const projectsList = document.getElementById('projects-list');
-            projectsList.innerHTML = siteContent.projects.map(project => `
-                <div class="p-4 border-b border-gray-200 last:border-b-0">
-                    <h4 class="text-lg font-semibold text-gray-800">${project.year}</h4>
-                    <p class="text-gray-600">${project.description}</p>
-                </div>
-            `).join('');
+            projectsList.innerHTML = `
+                <div class="absolute left-1/2 top-0 h-full w-0.5 bg-blue-300 -translate-x-1/2"></div>
+                ${siteContent.projects.map((project, index) => {
+                    const side = index % 2 === 0 ? 'left' : 'right';
+                    const alignment = side === 'left' ? 'text-right' : 'text-left';
+                    const margin = side === 'left' ? 'mr-auto' : 'ml-auto';
+                    
+                    return `
+                    <div class="mb-12 relative timeline-item reveal-on-scroll timeline-item-${side}">
+                        <div class="absolute w-5 h-5 bg-blue-600 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-white"></div>
+                        <div class="w-5/12 ${margin}">
+                            <div class="bg-white p-6 rounded-lg shadow-lg ${alignment}">
+                                <h4 class="text-xl font-bold text-blue-600">${project.year}</h4>
+                                <p class="text-gray-700 mt-2">${project.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('')}`;
 
-            // Clients
+            // Clients - GRID
             const clientsList = document.getElementById('clients-list');
             clientsList.innerHTML = `
-                <p>${siteContent.projects_intro}</p>
-                <div class="mt-8">
-                    <ul class="list-disc list-inside space-y-2">
-                        ${siteContent.clients.map(client => `<li>${client}</li>`).join('')}
-                    </ul>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                    ${siteContent.clients.map(client => `
+                        <div class="reveal-on-scroll flex flex-col items-center justify-center p-6 bg-gray-100 rounded-lg w-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-md">
+                             <svg class="w-16 h-16 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="${client.icon}"></path></svg>
+                            <p class="text-center font-semibold text-gray-700">${client.name}</p>
+                        </div>
+                    `).join('')}
                 </div>
             `;
 
@@ -310,7 +356,6 @@
 
             if (siteContent.contact_details && siteContent.contact_details.length > 0) {
                 const firstDetail = siteContent.contact_details[0];
-                
                 contactInfoRow1.innerHTML = `
                     <div class="text-center w-64">
                         <div class="bg-gray-700 p-3 rounded-full inline-block">
@@ -318,11 +363,9 @@
                         </div>
                         <h4 class="text-lg font-semibold mt-2">${firstDetail.label}</h4>
                         <p class="text-gray-300">${firstDetail.is_link ? `<a href="${firstDetail.href}" class="hover:text-blue-400 underline">${firstDetail.value}</a>` : firstDetail.value}</p>
-                    </div>
-                `;
+                    </div>`;
 
                 const otherDetails = siteContent.contact_details.slice(1);
-
                 contactInfoRow2.innerHTML = otherDetails.map(detail => `
                     <div class="text-center w-64">
                         <div class="bg-gray-700 p-3 rounded-full inline-block">
@@ -330,8 +373,7 @@
                         </div>
                         <h4 class="text-lg font-semibold mt-2">${detail.label}</h4>
                         <p class="text-gray-300">${detail.is_link ? `<a href="${detail.href}" class="hover:text-blue-400 underline">${detail.value}</a>` : detail.value}</p>
-                    </div>
-                `).join('');
+                    </div>`).join('');
             }
         };
         
@@ -358,17 +400,30 @@
 
         // Active link highlighting on scroll
         const sections = document.querySelectorAll('main section');
-        const observer = new IntersectionObserver((entries) => {
+        const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => {
-                        link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        const href = link.getAttribute('href');
+                        link.classList.toggle('active', href && href.substring(1) === entry.target.id);
                     });
                 }
             });
         }, { rootMargin: '-50% 0px -50% 0px' });
+        sections.forEach(section => navObserver.observe(section));
 
-        sections.forEach(section => observer.observe(section));
+        // Animation on scroll
+        const animatedElements = document.querySelectorAll('.reveal-on-scroll');
+        const animationObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(el => animationObserver.observe(el));
+
 
         document.getElementById('footer-year').textContent = new Date().getFullYear();
 
