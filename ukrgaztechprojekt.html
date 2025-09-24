@@ -46,7 +46,7 @@
             animation: pulse 2.5s infinite;
         }
 
-        /* --- List Styling --- */
+        /* --- List Styling (FIXED) --- */
         .expandable-list {
             overflow: hidden;
             transition: max-height 0.7s ease-in-out;
@@ -54,7 +54,7 @@
         .additional-activities-list {
             max-height: 12rem;
         }
-        #timeline-container {
+        .timeline-container-list {
             max-height: 38rem; /* Approx 4 items */
         }
         .list-container.expanded .expandable-list {
@@ -67,7 +67,6 @@
         .list-container.expanded .show-more-btn svg {
             transform: rotate(180deg);
         }
-
 
         /* --- Modal Styling --- */
         .modal-content {
@@ -382,7 +381,7 @@
             document.getElementById('goal-trigger')?.addEventListener('click', () => openModal(siteContent.about.goal.title, siteContent.about.goal.content));
             document.getElementById('vision-trigger')?.addEventListener('click', () => openModal(siteContent.about.vision.title, siteContent.about.vision.content));
         };
-        
+
         const updateDynamicContent = () => {
             if (!siteContent) return;
 
@@ -466,7 +465,7 @@
                 }).join('');
                 projectsList.innerHTML = `
                     <div class="list-container">
-                        <div id="timeline-container" class="relative wrap overflow-hidden p-2 h-full expandable-list">
+                        <div id="timeline-container" class="relative wrap overflow-hidden p-2 h-full expandable-list timeline-container-list">
                             <div class="absolute border-opacity-20 border-gray-400 h-full border-2" style="left: 50%"></div>
                             ${timelineHtml}
                         </div>
