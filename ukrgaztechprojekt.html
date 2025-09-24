@@ -24,21 +24,43 @@
             opacity: 0;
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        
         .reveal-on-scroll:not(.timeline-item) {
              transform: translateY(20px);
         }
-
         .reveal-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0) translateX(0);
         }
-
         .timeline-item.reveal-on-scroll.timeline-item-left {
             transform: translateX(-30px);
         }
         .timeline-item.reveal-on-scroll.timeline-item-right {
             transform: translateX(30px);
+        }
+
+        /* --- Details/Summary Styling for Mission/Vision/Goal --- */
+        details > summary {
+            list-style: none; /* Remove default marker */
+            cursor: pointer;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details .summary-arrow {
+            transition: transform 0.2s;
+        }
+        details[open] .summary-arrow {
+            transform: rotate(90deg);
+        }
+
+        /* --- Additional Activities List Styling --- */
+        .additional-activities-list {
+            max-height: 12rem; /* Approx height for 5 items */
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .additional-activities-list.expanded {
+            max-height: 100rem; /* Large value to show all */
         }
     </style>
 </head>
@@ -47,7 +69,7 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#about" class="text-2xl font-bold text-gray-800 flex items-center gap-x-3 transition-transform duration-300 hover:scale-105">
-                <img src="images/ukrgaztechprojekt/icon.png" class="w-8 h-8">
+                <img src="images/ukrgaztechprojekt/icon.png" alt="Логотип УКРГАЗТЕХПРОЕКТ" class="w-8 h-8">
                 <span data-translate="companyName">УКРГАЗТЕХПРОЕКТ</span>
             </a>
             
@@ -86,13 +108,11 @@
     <main>
         <section id="about" class="pt-20 pb-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(249, 250, 251, 0.85), rgba(249, 250, 251, 0.85)), url('images/ukrgaztechprojekt/background.png');">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto text-center">
+                <div class="max-w-5xl mx-auto text-center">
                     <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal-on-scroll" data-translate="hero_title">ТОВ "УКРГАЗТЕХПРОЕКТ"</h1>
                     <p class="text-lg md:text-xl text-gray-600 mb-8 reveal-on-scroll" data-translate="hero_subtitle"></p>
-                    <div class="text-left text-gray-700 space-y-4 bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll">
-                        <p data-translate="about_p1"></p>
-                        <p data-translate="about_p2"></p>
-                    </div>
+                    <div id="about-content" class="text-left text-gray-700 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll">
+                        </div>
                 </div>
             </div>
         </section>
@@ -100,10 +120,10 @@
         <section id="directions" class="py-20 bg-white overflow-x-hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center reveal-on-scroll">
-                    <h2 class="text-3xl font-bold mb-2" data-translate="directions_title">Основні Напрями Діяльності</h2>
+                    <h2 class="text-3xl font-bold mb-2" data-translate="directions_title">Напрями Діяльності</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
-                <div id="directions-container" class="space-y-12">
+                <div id="directions-container" class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg reveal-on-scroll">
                      </div>
             </div>
         </section>
@@ -115,7 +135,7 @@
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
                 <div id="projects-list" class="relative max-w-4xl mx-auto">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -126,7 +146,7 @@
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
                 <div id="clients-list" class="max-w-5xl mx-auto">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -165,89 +185,151 @@
             "nav_contact": "Контакти",
             "hero_title": "ТОВ \"УКРГАЗТЕХПРОЕКТ\"",
             "hero_subtitle": "Багатопрофільна інжинірингова і торговельна компанія",
-            "about_p1": "ТОВ \"УКРГАЗТЕХПРОЕКТ\" було зареєстроване 20 жовтня 2008 року. З моменту заснування компанія займалась інжиніринговою діяльністю, а згодом розширила сферу діяльності. Наразі ми є постачальником ресурсів для нафтогазового та енергетичного сектору, а також для великих промислових підприємств.",
-            "about_p2": "Наша компанія поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Ми прагнемо бути надійним партнером у розвитку енергетичного потенціалу країни та забезпечувати сталий розвиток галузі шляхом впровадження інноваційних, високотехнологічних та екологічно безпечних рішень.",
-            "directions_title": "Основні Напрями Діяльності",
-            "directions": [
-                {"title": "Науково-виробнича діяльність", "description": "Ми перетворюємо наукові ідеї на реальні технології, продукти та послуги. Наша діяльність включає проведення досліджень, розробку інноваційних технологій, створення прототипів, їх тестування та впровадження у виробництво."},
-                {"title": "Інжиніринг", "description": "Діяльність у сфері інжинірингу, геології та геодезії, а також технічне консультування."},
-                {"title": "Торгівля", "description": "Торгівля промисловим обладнанням для нафтогазової та енергетичної галузей, а також хімічними реагентами."},
-                {"title": "Ремонт і обслуговування", "description": "Ремонт і технічне обслуговування обладнання в нафтогазовій та енергетичній галузях."},
-                {"title": "Консультування", "description": "Надання консультацій у сфері комерційної діяльності, технологій, бухгалтерського обліку й аудиту."}
-            ],
+            "about": {
+                "history_title": "Історія та компетенції",
+                "history_content": [
+                    "Компанія УКРГАЗТЕХПРОЕКТ заснована у 2008 році і спочатку займалася інжиніринговою діяльністю.",
+                    "Згодом ми розширили сферу діяльності і зараз є постачальником ресурсів для нафтогазового та енергетичного сектору, великих промислових підприємств тощо.",
+                    "Вибудовуємо персональну модель співпраці з кожним клієнтом, ураховуючи специфіку бізнесу та відповідні вимоги.",
+                    "Кваліфіковані співробітники нашої компанії забезпечують оптимальні умови співпраці: мінімальний термін виконання замовлення, розумні ціни, гнучку форму оплати, швидку доставку до складу, інформаційно-консультативну підтримку.",
+                    "Найвища відповідальність до роботи, своєчасність і надійність, оптимальне співвідношення ціни і якості послуг, інтеграційний підхід у взаємодії з контрагентами.",
+                    "Компанію пов’язують тісні відносини з багатьма виробниками нафтогазового обладнання в Україні, країнах Європейського союзу і Китаї. Спектр продукції, що поставляється досить широкий, включаючи повний перелік вузлів, запасних частин і витратних матеріалів, що застосовуються в нафтогазовій галузі.",
+                    "ТОВ УКРГАЗТЕХПРОЕКТ — це організація, яка поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Завданням компанії є не лише створення нових знань чи технологій, але й їх практичне впровадження у виробництво.",
+                    "Без перебільшення можна сказати, що наша компанія поєднує науку та виробництво, для впровадження передових рішень у нафтогазовидобуванні. Ми прагнемо підвищити ефективність кожного процесу та мінімізувати вплив на довкілля. Наша мета – бути надійним партнером у розвитку енергетичного потенціалу країни."
+                ],
+                "mission": {
+                    "title": "Місія",
+                    "content": "Забезпечувати сталий розвиток нафтогазовидобувної галузі шляхом створення й впровадження інноваційних технологій розвідки, видобутку, зберігання, транспортування та переробки вуглеводнів, що підвищують ефективність виробництва, знижують екологічні ризики та сприяють енергетичній безпеці країни."
+                },
+                "goal": {
+                    "title": "Мета",
+                    "content": "Створення й впровадження сучасного обладнання та технологій для підвищення продуктивності свердловин, ефективності роботи технологічного обладнання і зменшення собівартості видобутку, зберігання та транспортування вуглеводнів. Розробка та застосування екологічно безпечних методів, оптимізація використання енергоресурсів, інтеграція наукових розробок у виробничі процеси та підвищення кваліфікації персоналу."
+                },
+                "vision": {
+                    "title": "Візія",
+                    "content": "Бути лідером інновацій у нафтогазовидобувній галузі, створюючи високотехнологічні та екологічно безпечні рішення, які забезпечують ефективне використання природних ресурсів, енергетичну незалежність країни та сталий розвиток суспільства. Ми бачимо майбутнє, де нафтогазовидобування стає розумним, екологічним і максимально ефективним."
+                }
+            },
+            "directions_title": "Напрями Діяльності",
+            "directions": {
+                "main_title": "Основний напрям",
+                "main_activity": "Діяльність у сфері інжинірингу, геології та геодезії, технічне консультування (71.12).",
+                "additional_title": "Додаткові сфери",
+                "additional_activities": [
+                    "Діяльність посередників у торгівлі паливом, рудами, металами та промисловими хімічними речовинами (46.12)",
+                    "Діяльність посередників у торгівлі машинами, промисловим устаткуванням, суднами та літаками (46.14)",
+                    "Діяльність посередників у торгівлі товарами широкого асортименту (46.19)",
+                    "Неспеціалізована оптова торгівля (46.90)",
+                    "Ремонт і технічне обслуговування машин і устатковання промислового призначення (33.12)",
+                    "Діяльність посередників, що спеціалізуються в торгівлі іншими товарами (46.18)",
+                    "Оптова торгівля іншими товарами господарського призначення (46.49)",
+                    "Оптова торгівля машинами й устаткованням для добувної промисловості та будівництва (46.63)",
+                    "Оптова торгівля іншими машинами й устаткованням (46.69)",
+                    "Оптова торгівля твердим, рідким, газоподібним паливом і подібними продуктами (46.71)",
+                    "Оптова торгівля металами та металевими рудами (46.72)",
+                    "Оптова торгівля залізними виробами, водопровідним і опалювальним устаткованням і приладдям до нього (46.74)",
+                    "Оптова торгівля хімічними продуктами (46.75)",
+                    "Діяльність у сфері бухгалтерського обліку й аудиту, консультування з питань оподаткування (69.20)",
+                    "Консультування з питань комерційної діяльності й керування (70.22)",
+                    "Дослідження й експериментальні розробки у сфері інших природничих і технічних наук (72.19)",
+                    "Інша професійна, наукова та технічна діяльність, н.в.і.у. (74.90)",
+                    "Надання допоміжних послуг у сфері добування нафти та природного газу (09.10)",
+                    "Виробництво іншої хімічної продукції, н.в.і.у. (20.59)",
+                    "Виробництво гідравлічного та пневматичного устатковання (28.12)",
+                    "Виробництво інших кранів і клапанів (28.14)",
+                    "Виробництво інших машин і устатковання загального призначення, н.в.і.у. (28.29)",
+                    "Виробництво машин і устатковання для добувної промисловості та будівництва (28.92)",
+                    "Установлення та монтаж машин і устатковання (33.20)",
+                    "Технічне обслуговування та ремонт автотранспортних засобів (45.20)",
+                    "Оптова торгівля деталями та приладдям для автотранспортних засобів (45.31)"
+                ],
+                "show_more_text": "Показати більше",
+                "show_less_text": "Сховати"
+            },
             "projects_title": "Виконані Роботи",
-            "projects": [
-                {"year": 2013, "description": "Дослідження та розробки в галузі геодезії і розробки корисних копалин ('Регламент по контролю за експлуатацією та герметичністю Глібовського ПСГ') – для ДАТ \"ЧОРНОМОРНАФТОГАЗ\"."},
-                {"year": 2012, "description": "Комплексні інженерні послуги з авторського нагляду за експлуатацією ПСГ УМГ \"Київтрансгаз\"."},
-                {"year": 2012, "description": "Консультативні послуги щодо оптимізації схеми регулювання відбирання/закачування газу з Вергунського та Краснопопівського ПСГ – для Філії \"УМГ \"Донбастрансгаз\"."},
-                {"year": 2012, "description": "Авторський нагляд за експлуатацією ПСГ УМГ \"Донбастрансгаз\"."},
-                {"year": 2012, "description": "Розроблення положення про регламент з контролю за експлуатацією пластових систем ПСГ – для АТ \"Укртрансгаз\"."},
-                {"year": 2011, "description": "Аналіз експлуатації пластових систем Угерського ПСГ – для Філії \"УМГ \"Львівтрансгаз\"."},
-                {"year": 2011, "description": "Авторський нагляд за експлуатацією підземних сховищ газу УМГ \"Донбастрансгаз\"."},
-                {"year": 2010, "description": "Розробка технологічних регламентів по контролю за експлуатацією та герметичністю ПСГ – для Філії \"УМГ \"Київтрансгаз\"."},
-                {"year": 2009, "description": "Авторський нагляд за експлуатацією ПСГ УМГ \"Київтрансгаз\" (Червонопартизанське, Солохівське, Олишівське ПСГ)."}
-            ],
+            "projects": [{"year": 2013, "description": "Дослідження та розробки в галузі геодезії і розробки корисних копалин ('Регламент по контролю за експлуатацією та герметичністю Глібовського ПСГ') – для ДАТ \"ЧОРНОМОРНАФТОГАЗ\"."}, {"year": 2012, "description": "Комплексні інженерні послуги з авторського нагляду за експлуатацією ПСГ УМГ \"Київтрансгаз\"."}, {"year": 2012, "description": "Консультативні послуги щодо оптимізації схеми регулювання відбирання/закачування газу з Вергунського та Краснопопівського ПСГ – для Філії \"УМГ \"Донбастрансгаз\"."}, {"year": 2012, "description": "Авторський нагляд за експлуатацією ПСГ УМГ \"Донбастрансгаз\"."}, {"year": 2012, "description": "Розроблення положення про регламент з контролю за експлуатацією пластових систем ПСГ – для АТ \"Укртрансгаз\"."}, {"year": 2011, "description": "Аналіз експлуатації пластових систем Угерського ПСГ – для Філії \"УМГ \"Львівтрансгаз\"."}, {"year": 2011, "description": "Авторський нагляд за експлуатацією підземних сховищ газу УМГ \"Донбастрансгаз\"."}, {"year": 2010, "description": "Розробка технологічних регламентів по контролю за експлуатацією та герметичністю ПСГ – для Філії \"УМГ \"Київтрансгаз\"."}, {"year": 2009, "description": "Авторський нагляд за експлуатацією ПСГ УМГ \"Київтрансгаз\" (Червонопартизанське, Солохівське, Олишівське ПСГ)."} ],
             "clients_title": "Наші Клієнти",
-            "clients": [
-                { "name": "ПАТ \"Укртрансгаз\"", "icon": "M3.75 14.25h16.5m-16.5-9h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" }, 
-                { "name": "ДАТ “Чорноморнафтогаз”", "icon": "M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" },
-                { "name": "Філія \"УМГ \"Київтрансгаз\"", "icon": "M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V3.75m-18 0A2.25 2.25 0 014.5 1.5h15a2.25 2.25 0 012.25 2.25m-18 0h19.5" },
-                { "name": "Філія \"УМГ \"Донбастрансгаз\"", "icon": "M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M2.25 9l3 1m12-1l-3 1" },
-                { "name": "Філія \"УМГ \"Львівтрансгаз\"", "icon": "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.083 14.133 7.5 15 7.5c2.25 0 4.5-.625 6-1.5" } 
-            ],
+            "clients": [ { "name": "ПАТ \"Укртрансгаз\"", "icon": "M3.75 14.25h16.5m-16.5-9h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" }, { "name": "ДАТ “Чорноморнафтогаз”", "icon": "M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" }, { "name": "Філія \"УМГ \"Київтрансгаз\"", "icon": "M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V3.75m-18 0A2.25 2.25 0 014.5 1.5h15a2.25 2.25 0 012.25 2.25m-18 0h19.5" }, { "name": "Філія \"УМГ \"Донбастрансгаз\"", "icon": "M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M2.25 9l3 1m12-1l-3 1" }, { "name": "Філія \"УМГ \"Львівтрансгаз\"", "icon": "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.083 14.133 7.5 15 7.5c2.25 0 4.5-.625 6-1.5" } ],
             "contact_title": "Контакти",
-            "contact_details": [
-                { "label": "Адреса", "value": "04107, м. Київ, вул. Підгірна/Татарська, 3/7", "icon": "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z", "is_link": false },
-                { "label": "ЄДРПОУ", "value": "36215848", "icon": "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75", "is_link": false },
-                { "label": "МФО", "value": "380775", "icon": "M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m-6 2.25h6M3 12l6 6l6-6", "is_link": false }
-            ],
+            "contact_details": [ { "label": "Адреса", "value": "04107, м. Київ, вул. Підгірна/Татарська, 3/7", "icon": "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z", "is_link": false }, { "label": "ЄДРПОУ", "value": "36215848", "icon": "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75", "is_link": false }, { "label": "МФО", "value": "380775", "icon": "M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m-6 2.25h6M3 12l6 6l6-6", "is_link": false } ],
             "footer_rights": "Всі права захищено."
         },
         en: {
             "companyName": "UKRGAZTEKHPROEKT",
             "nav_about": "About Us",
-            "nav_directions": "Directions",
-            "nav_projects": "Works",
-            "nav_clients": "Clients",
+            "nav_directions": "Areas of Activity",
+            "nav_projects": "Completed Works",
+            "nav_clients": "Our Clients",
             "nav_contact": "Contact",
-            "hero_title": "\"UKRGAZTEKHPROEKT\" LLC",
-            "hero_subtitle": "Multifaceted engineering and trading company",
-            "about_p1": "\"UKRGAZTEKHPROEKT\" LLC was registered on October 20, 2008. From its founding, the company was engaged in engineering activities, and later expanded its scope. We are now a supplier of resources for the oil and gas and energy sectors, as well as for large industrial enterprises.",
-            "about_p2": "Our company combines research and development, experimental design, and production activities. We aim to be a reliable partner in developing the country's energy potential and ensuring the sustainable development of the industry by implementing innovative, high-tech, and environmentally safe solutions.",
-            "directions_title": "Main Directions of Activity",
-            "directions": [
-                {"title": "Scientific and Production Activity", "description": "We transform scientific ideas into real technologies, products, and services. Our work includes conducting research, developing innovative technologies, creating prototypes, testing them, and implementing them into production."},
-                {"title": "Engineering", "description": "Activities in the field of engineering, geology, and geodesy, as well as technical consulting."},
-                {"title": "Trading", "description": "Trading of industrial equipment for the oil and gas and energy sectors, as well as chemical reagents."},
-                {"title": "Repair and Maintenance", "description": "Repair and technical maintenance of equipment in the oil and gas and energy sectors."},
-                {"title": "Consulting", "description": "Providing consultations on commercial activities, technologies, accounting, and auditing."}
-            ],
+            "hero_title": "UKRGAZTEKHPROEKT LLC",
+            "hero_subtitle": "Multidisciplinary engineering and trading company",
+            "about": {
+                "history_title": "History and Competencies",
+                "history_content": [
+                    "UKRGAZTEKHPROEKT was founded in 2008 and initially focused on engineering activities.",
+                    "Subsequently, we expanded our scope of activities and are now a supplier of resources for the oil and gas and energy sectors, large industrial enterprises, and more.",
+                    "We build a personal model of cooperation with each client, taking into account the specifics of their business and corresponding requirements.",
+                    "The qualified employees of our company ensure optimal conditions for cooperation: minimal order fulfillment time, reasonable prices, flexible payment terms, fast delivery to the warehouse, and information and consulting support.",
+                    "The highest responsibility in our work, timeliness and reliability, an optimal price-to-quality ratio for services, and an integrative approach in interacting with counterparties.",
+                    "The company has close relationships with many manufacturers of oil and gas equipment in Ukraine, the European Union, and China. The range of supplied products is quite wide, including a full list of components, spare parts, and consumables used in the oil and gas industry.",
+                    "UKRGAZTEKHPROEKT LLC is an organization that combines research, development, and production activities. The company's task is not only to create new knowledge or technologies but also to implement them into production.",
+                    "It is no exaggeration to say that our company combines science and production to implement advanced solutions in oil and gas extraction. We strive to increase the efficiency of every process and minimize environmental impact. Our goal is to be a reliable partner in developing the country's energy potential."
+                ],
+                "mission": {
+                    "title": "Mission",
+                    "content": "To ensure the sustainable development of the oil and gas production industry by creating and implementing innovative technologies for exploration, production, storage, transportation, and processing of hydrocarbons, which increase production efficiency, reduce environmental risks, and contribute to the country's energy security."
+                },
+                "goal": {
+                    "title": "Goal",
+                    "content": "The creation and implementation of modern equipment and technologies to increase well productivity, improve the efficiency of technological equipment, and reduce the cost of extraction, storage, and transportation of hydrocarbons. Development and application of environmentally friendly methods, optimization of energy resource use, integration of scientific developments into production processes, and staff qualification improvement."
+                },
+                "vision": {
+                    "title": "Vision",
+                    "content": "To be a leader of innovation in the oil and gas production industry, creating high-tech and environmentally safe solutions that ensure the efficient use of natural resources, the country's energy independence, and the sustainable development of society. We see a future where oil and gas production becomes smart, ecological, and maximally effective."
+                }
+            },
+            "directions_title": "Areas of Activity",
+            "directions": {
+                "main_title": "Primary Area",
+                "main_activity": "Activities in engineering, geology and geodesy, technical consultancy (71.12).",
+                "additional_title": "Additional Areas",
+                "additional_activities": [
+                    "Agents involved in the sale of fuels, ores, metals and industrial chemicals (46.12)",
+                    "Agents involved in the sale of machinery, industrial equipment, ships and aircraft (46.14)",
+                    "Agents involved in the sale of a variety of goods (46.19)",
+                    "Non-specialized wholesale trade (46.90)",
+                    "Repair of machinery and equipment of industrial use (33.12)",
+                    "Agents specialized in the sale of other particular products (46.18)",
+                    "Wholesale of other household goods (46.49)",
+                    "Wholesale of machinery and equipment for mining and construction (46.63)",
+                    "Wholesale of other machinery and equipment (46.69)",
+                    "Wholesale of solid, liquid and gaseous fuels and related products (46.71)",
+                    "Wholesale of metals and metal ores (46.72)",
+                    "Wholesale of hardware, plumbing and heating equipment and supplies (46.74)",
+                    "Wholesale of chemical products (46.75)",
+                    "Accounting, bookkeeping and auditing activities; tax consultancy (69.20)",
+                    "Business and other management consultancy activities (70.22)",
+                    "Research and experimental development on other natural sciences and engineering (72.19)",
+                    "Other professional, scientific and technical activities n.e.c. (74.90)",
+                    "Support activities for petroleum and natural gas extraction (09.10)",
+                    "Manufacture of other chemical products n.e.c. (20.59)",
+                    "Manufacture of fluid power equipment (28.12)",
+                    "Manufacture of other taps and valves (28.14)",
+                    "Manufacture of other general-purpose machinery n.e.c. (28.29)",
+                    "Manufacture of machinery and equipment for mining and construction (28.92)",
+                    "Installation of industrial machinery and equipment (33.20)",
+                    "Maintenance and repair of motor vehicles (45.20)",
+                    "Wholesale trade of motor vehicle parts and accessories (45.31)"
+                ],
+                "show_more_text": "Show more",
+                "show_less_text": "Show less"
+            },
             "projects_title": "Completed Works",
-             "projects": [
-                {"year": 2013, "description": "R&D in geodesy and mineral extraction ('Regulations on control over the operation and tightness of the Hlibivske UGS') – for JSC \"CHORNOMORNAFTOHAZ\"."},
-                {"year": 2012, "description": "Comprehensive engineering services for author's supervision of UGS operation for the UMG \"Kyivtransgaz\" branch."},
-                {"year": 2012, "description": "Consulting on optimizing gas withdrawal/injection for Vergunsk and Krasnopopivske UGS – for \"Donbastransgaz\" UMG branch."},
-                {"year": 2012, "description": "Author's supervision of UGS operation for the UMG \"Donbastransgaz\" branch."},
-                {"year": 2012, "description": "Development of a regulation on the control of the operation of UGS reservoir systems – for JSC \"Ukrtransgaz\"."},
-                {"year": 2011, "description": "Analysis of the operation of the Uhery UGS reservoir systems – for the \"Lvivtransgaz\" UMG branch."},
-                {"year": 2011, "description": "Author's supervision of underground gas storages for the \"Donbastransgaz\" UMG branch."},
-                {"year": 2010, "description": "Development of technological regulations for controlling the operation and tightness of UGS – for the \"Kyivtransgaz\" UMG branch."},
-                {"year": 2009, "description": "Author's supervision of UGS operation for the \"Kyivtransgaz\" UMG branch (Chervonopartyzanske, Solokhivske, Olyshivske UGS)."}
-            ],
+             "projects": [ {"year": 2013, "description": "R&D in geodesy and mineral extraction ('Regulations on control over the operation and tightness of the Hlibivske UGS') – for JSC \"CHORNOMORNAFTOHAZ\"."}, {"year": 2012, "description": "Comprehensive engineering services for author's supervision of UGS operation for the UMG \"Kyivtransgaz\" branch."}, {"year": 2012, "description": "Consulting on optimizing gas withdrawal/injection for Vergunsk and Krasnopopivske UGS – for \"Donbastransgaz\" UMG branch."}, {"year": 2012, "description": "Author's supervision of UGS operation for the UMG \"Donbastransgaz\" branch."}, {"year": 2012, "description": "Development of a regulation on the control of the operation of UGS reservoir systems – for JSC \"Ukrtransgaz\"."}, {"year": 2011, "description": "Analysis of the operation of the Uhery UGS reservoir systems – for the \"Lvivtransgaz\" UMG branch."}, {"year": 2011, "description": "Author's supervision of underground gas storages for the \"Donbastransgaz\" UMG branch."}, {"year": 2010, "description": "Development of technological regulations for controlling the operation and tightness of UGS – for the \"Kyivtransgaz\" UMG branch."}, {"year": 2009, "description": "Author's supervision of UGS operation for the \"Kyivtransgaz\" UMG branch (Chervonopartyzanske, Solokhivske, Olyshivske UGS)."} ],
             "clients_title": "Our Clients",
-            "clients": [
-                { "name": "PJSC \"Ukrtransgaz\"", "icon": "M3.75 14.25h16.5m-16.5-9h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" },
-                { "name": "JSC “Chornomornaftogaz”", "icon": "M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" },
-                { "name": "Branch \"UMG \"Kyivtransgaz\"", "icon": "M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V3.75m-18 0A2.25 2.25 0 014.5 1.5h15a2.25 2.25 0 012.25 2.25m-18 0h19.5" },
-                { "name": "Branch \"UMG \"Donbastransgaz\"", "icon": "M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M2.25 9l3 1m12-1l-3 1" },
-                { "name": "Branch \"UMG \"Lvivtransgaz\"", "icon": "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.083 14.133 7.5 15 7.5c2.25 0 4.5-.625 6-1.5" }
-            ],
+            "clients": [ { "name": "PJSC \"Ukrtransgaz\"", "icon": "M3.75 14.25h16.5m-16.5-9h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" }, { "name": "JSC “Chornomornaftogaz”", "icon": "M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" }, { "name": "Branch \"UMG \"Kyivtransgaz\"", "icon": "M2.25 21h19.5m-18-18v18A2.25 2.25 0 004.5 21h15a2.25 2.25 0 002.25-2.25V3.75m-18 0A2.25 2.25 0 014.5 1.5h15a2.25 2.25 0 012.25 2.25m-18 0h19.5" }, { "name": "Branch \"UMG \"Donbastransgaz\"", "icon": "M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1M2.25 9l3 1m12-1l-3 1" }, { "name": "Branch \"UMG \"Lvivtransgaz\"", "icon": "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.083 14.133 7.5 15 7.5c2.25 0 4.5-.625 6-1.5" } ],
             "contact_title": "Contact",
-             "contact_details": [
-                { "label": "Address", "value": "3/7 Pidhirna/Tatarska St, Kyiv, 04107", "icon": "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z", "is_link": false },
-                { "label": "EDRPOU", "value": "36215848", "icon": "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75", "is_link": false },
-                { "label": "MFO", "value": "380775", "icon": "M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m-6 2.25h6M3 12l6 6l6-6", "is_link": false }
-            ],
+             "contact_details": [ { "label": "Address", "value": "3/7 Pidhirna/Tatarska St, Kyiv, 04107", "icon": "M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z", "is_link": false }, { "label": "EDRPOU", "value": "36215848", "icon": "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75", "is_link": false }, { "label": "MFO", "value": "380775", "icon": "M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m-6 2.25h6M3 12l6 6l6-6", "is_link": false } ],
             "footer_rights": "All rights reserved."
         }
     };
@@ -303,18 +385,70 @@
                 btnUa.classList.add('text-gray-400');
             }
         };
+        
+        const attachDirectionsEventListeners = () => {
+            const showMoreBtn = document.getElementById('show-more-activities-btn');
+            const list = document.querySelector('.additional-activities-list');
+            
+            if (showMoreBtn && list) {
+                showMoreBtn.addEventListener('click', () => {
+                    const isExpanded = list.classList.toggle('expanded');
+                    showMoreBtn.textContent = isExpanded ? siteContent.directions.show_less_text : siteContent.directions.show_more_text;
+                });
+            }
+        };
 
         const updateDynamicContent = () => {
             if (!siteContent.directions) return;
 
-            // Directions
+            // About section
+            const aboutContainer = document.getElementById('about-content');
+            const aboutData = siteContent.about;
+            if(aboutData) {
+                const historyHtml = aboutData.history_content.map(p => `<p>${p}</p>`).join('');
+                const interactiveItems = [aboutData.mission, aboutData.goal, aboutData.vision].map(item => `
+                    <div class="flex-1">
+                        <details class="bg-white/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <summary class="font-semibold text-lg flex justify-between items-center">
+                                ${item.title}
+                                <svg class="w-5 h-5 summary-arrow transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                            </summary>
+                            <p class="mt-3 text-gray-600">${item.content}</p>
+                        </details>
+                    </div>
+                `).join('');
+
+                aboutContainer.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-4 text-center">${aboutData.history_title}</h2>
+                    <div class="space-y-4">${historyHtml}</div>
+                    <div class="flex flex-col md:flex-row gap-6 mt-8">
+                        ${interactiveItems}
+                    </div>
+                `;
+            }
+
+            // Directions section
             const directionsContainer = document.getElementById('directions-container');
-            directionsContainer.innerHTML = siteContent.directions.map(direction => `
-                <div class="bg-white p-8 rounded-lg shadow-lg reveal-on-scroll transition-transform duration-300 hover:scale-[1.03] hover:shadow-xl">
-                    <h3 class="text-2xl font-bold mb-4">${direction.title}</h3>
-                    <p class="text-gray-600">${direction.description}</p>
-                </div>
-            `).join('');
+            const dirData = siteContent.directions;
+            if(dirData) {
+                const additionalActivitiesHtml = dirData.additional_activities.map(activity => `<li class="pb-2">${activity}</li>`).join('');
+                directionsContainer.innerHTML = `
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-600">${dirData.main_title}</h3>
+                            <p>${dirData.main_activity}</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-blue-600">${dirData.additional_title}</h3>
+                            <ul class="list-disc list-inside text-gray-700 additional-activities-list">
+                                ${additionalActivitiesHtml}
+                            </ul>
+                            <button id="show-more-activities-btn" class="mt-4 text-blue-600 font-semibold hover:underline">${dirData.show_more_text}</button>
+                        </div>
+                    </div>
+                `;
+                attachDirectionsEventListeners();
+            }
 
             // Projects - TIMELINE
             const projectsList = document.getElementById('projects-list');
@@ -376,7 +510,6 @@
                     </div>`).join('');
             }
             
-            // Re-initialize animations for newly created elements
             setupAnimations();
         };
         
@@ -401,7 +534,6 @@
             });
         });
 
-        // Active link highlighting on scroll
         const sections = document.querySelectorAll('main section');
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -417,7 +549,6 @@
 
         document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-        // Initial load
         changeLanguage('ua');
     });
     </script>
