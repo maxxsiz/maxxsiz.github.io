@@ -43,7 +43,7 @@
             }
         }
         .pulsing-button {
-            animation: pulse 2s infinite;
+            animation: pulse 2.5s infinite;
         }
 
         /* --- List Styling --- */
@@ -60,10 +60,17 @@
         .additional-activities-list.expanded, #timeline-container.expanded {
             max-height: 200rem; /* Large value to show all */
         }
+        .show-more-btn svg {
+            transition: transform 0.4s ease;
+        }
+        .list-container.expanded .show-more-btn svg {
+            transform: rotate(180deg);
+        }
+
 
         /* --- Modal Styling --- */
         .modal-content {
-            transition: all 0.3s ease-in-out;
+            transition: all 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -201,17 +208,16 @@
             },
             "benefits_title": "Наші переваги",
             "benefits": [
-                { "title": "Гнучка система ціноутворення", "description": "Якісно підходимо до цінових пропозицій, ураховуючи конкретні потреби, графіки постачань та обсяги закупівель.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1m-7 6h7m-3-3h3'></path>" },
-                { "title": "Зручні умови оплати", "description": "Розуміємо, що у всіх компаній свій платіжний календар, тому з кожним Клієнтом обговорюємо персональний механізм оплати.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z'></path>" },
-                { "title": "Своєчасне постачання", "description": "Переконані, що бізнес повинен працювати безперервно, тому вчасно постачаємо необхідний обсяг ресурсів.", "icon": "<path d='M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z'></path><path stroke-linecap='round' stroke-linejoin='round' d='M13 17H6V6h10v4l4 4H13zM6 6L3 9h3v8h12v-2'></path>" },
-                { "title": "Висока якість продукту", "description": "Пропонуємо ресурси високої якості, що підтверджує співпрацю з надійними виробниками (сертифікати, специфікації).", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'></path>" },
-                { "title": "Широкий асортимент", "description": "Пропонуємо кілька варіантів готової продукції і допомагаємо зробити оптимальний вибір для ваших завдань.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M4 6h16M4 10h16M4 14h16M4 18h16'></path>" }
+                { "title": "Гнучка система ціноутворення", "description": "Якісно підходимо до цінових пропозицій, ураховуючи конкретні потреби, графіки постачань та обсяги закупівель.", "icon": "path/to/your/pricing-icon.png" },
+                { "title": "Зручні умови оплати", "description": "Розуміємо, що у всіх компаній свій платіжний календар, тому з кожним Клієнтом обговорюємо персональний механізм оплати.", "icon": "path/to/your/payment-icon.png" },
+                { "title": "Своєчасне постачання", "description": "Переконані, що бізнес повинен працювати безперервно, тому вчасно постачаємо необхідний обсяг ресурсів.", "icon": "path/to/your/delivery-icon.png" },
+                { "title": "Висока якість продукту", "description": "Пропонуємо ресурси високої якості, що підтверджує співпрацю з надійними виробниками (сертифікати, специфікації).", "icon": "path/to/your/quality-icon.png" },
+                { "title": "Широкий асортимент", "description": "Пропонуємо кілька варіантів готової продукції і допомагаємо зробити оптимальний вибір для ваших завдань.", "icon": "path/to/your/assortment-icon.png" }
             ],
             "directions_title": "Напрями Діяльності",
             "directions": {
                 "main_title": "Основний напрям", "main_activity": "Діяльність у сфері інжинірингу, геології та геодезії, технічне консультування (71.12).", "additional_title": "Додаткові сфери",
                 "additional_activities": [ "Діяльність посередників у торгівлі паливом, рудами, металами та промисловими хімічними речовинами (46.12)", "Діяльність посередників у торгівлі машинами, промисловим устаткуванням, суднами та літаками (46.14)", "Діяльність посередників у торгівлі товарами широкого асортименту (46.19)", "Неспеціалізована оптова торгівля (46.90)", "Ремонт і технічне обслуговування машин і устатковання промислового призначення (33.12)", "Діяльність посередників, що спеціалізуються в торгівлі іншими товарами (46.18)", "Оптова торгівля іншими товарами господарського призначення (46.49)", "Оптова торгівля машинами й устаткованням для добувної промисловості та будівництва (46.63)", "Оптова торгівля іншими машинами й устаткованням (46.69)", "Оптова торгівля твердим, рідким, газоподібним паливом і подібними продуктами (46.71)", "Оптова торгівля металами та металевими рудами (46.72)", "Оптова торгівля залізними виробами, водопровідним і опалювальним устаткованням і приладдям до нього (46.74)", "Оптова торгівля хімічними продуктами (46.75)", "Діяльність у сфері бухгалтерського обліку й аудиту, консультування з питань оподаткування (69.20)", "Консультування з питань комерційної діяльності й керування (70.22)", "Дослідження й експериментальні розробки у сфері інших природничих і технічних наук (72.19)", "Інша професійна, наукова та технічна діяльність, н.в.і.у. (74.90)", "Надання допоміжних послуг у сфері добування нафти та природного газу (09.10)", "Виробництво іншої хімічної продукції, н.в.і.у. (20.59)", "Виробництво гідравлічного та пневматичного устатковання (28.12)", "Виробництво інших кранів і клапанів (28.14)", "Виробництво інших машин і устатковання загального призначення, н.в.і.у. (28.29)", "Виробництво машин і устатковання для добувної промисловості та будівництва (28.92)", "Установлення та монтаж машин і устатковання (33.20)", "Технічне обслуговування та ремонт автотранспортних засобів (45.20)", "Оптова торгівля деталями та приладдям для автотранспортних засобів (45.31)" ],
-                "show_more_text": "Показати більше", "show_less_text": "Сховати"
             },
             "projects_title": "Виконані Роботи",
             "projects": [
@@ -252,17 +258,16 @@
             },
             "benefits_title": "Our Advantages",
             "benefits": [
-                { "title": "Flexible Pricing System", "description": "We approach price offers effectively, considering specific needs, delivery schedules, and purchase volumes.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1m-7 6h7m-3-3h3'></path>" },
-                { "title": "Convenient Payment Terms", "description": "We understand that every company has its own payment calendar, so we discuss a personal payment mechanism with each Client.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z'></path>" },
-                { "title": "Timely Delivery", "description": "We are convinced that business must operate continuously, so we supply the necessary volume of resources on time.", "icon": "<path d='M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z'></path><path stroke-linecap='round' stroke-linejoin='round' d='M13 17H6V6h10v4l4 4H13zM6 6L3 9h3v8h12v-2'></path>" },
-                { "title": "High Product Quality", "description": "We offer high-quality resources, confirmed by cooperation with reliable manufacturers (certificates, specifications).", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'></path>" },
-                { "title": "Wide Assortment", "description": "We offer several options of finished products and help you make the optimal choice for your tasks.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M4 6h16M4 10h16M4 14h16M4 18h16'></path>" }
+                { "title": "Flexible Pricing System", "description": "We approach price offers effectively, considering specific needs, delivery schedules, and purchase volumes.", "icon": "path/to/your/pricing-icon.png" },
+                { "title": "Convenient Payment Terms", "description": "We understand that every company has its own payment calendar, so we discuss a personal payment mechanism with each Client.", "icon": "path/to/your/payment-icon.png" },
+                { "title": "Timely Delivery", "description": "We are convinced that business must operate continuously, so we supply the necessary volume of resources on time.", "icon": "path/to/your/delivery-icon.png" },
+                { "title": "High Product Quality", "description": "We offer high-quality resources, confirmed by cooperation with reliable manufacturers (certificates, specifications).", "icon": "path/to/your/quality-icon.png" },
+                { "title": "Wide Assortment", "description": "We offer several options of finished products and help you make the optimal choice for your tasks.", "icon": "path/to/your/assortment-icon.png" }
             ],
             "directions_title": "Areas of Activity",
             "directions": {
                 "main_title": "Primary Area", "main_activity": "Activities in engineering, geology and geodesy, technical consultancy (71.12).", "additional_title": "Additional Areas",
                 "additional_activities": [ "Agents involved in the sale of fuels, ores, metals and industrial chemicals (46.12)", "Agents involved in the sale of machinery, industrial equipment, ships and aircraft (46.14)", "Agents involved in the sale of a variety of goods (46.19)", "Non-specialized wholesale trade (46.90)", "Repair of machinery and equipment of industrial use (33.12)", "Agents specialized in the sale of other particular products (46.18)", "Wholesale of other household goods (46.49)", "Wholesale of machinery and equipment for mining and construction (46.63)", "Wholesale of other machinery and equipment (46.69)", "Wholesale of solid, liquid and gaseous fuels and related products (46.71)", "Wholesale of metals and metal ores (46.72)", "Wholesale of hardware, plumbing and heating equipment and supplies (46.74)", "Wholesale of chemical products (46.75)", "Accounting, bookkeeping and auditing activities; tax consultancy (69.20)", "Business and other management consultancy activities (70.22)", "Research and experimental development on other natural sciences and engineering (72.19)", "Other professional, scientific and technical activities n.e.c. (74.90)", "Support activities for petroleum and natural gas extraction (09.10)", "Manufacture of other chemical products n.e.c. (20.59)", "Manufacture of fluid power equipment (28.12)", "Manufacture of other taps and valves (28.14)", "Manufacture of other general-purpose machinery n.e.c. (28.29)", "Manufacture of machinery and equipment for mining and construction (28.92)", "Installation of industrial machinery and equipment (33.20)", "Maintenance and repair of motor vehicles (45.20)", "Wholesale trade of motor vehicle parts and accessories (45.31)" ],
-                "show_more_text": "Show more", "show_less_text": "Show less"
             },
             "projects_title": "Completed Works",
             "projects": [
