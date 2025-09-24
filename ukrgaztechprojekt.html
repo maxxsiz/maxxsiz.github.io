@@ -11,6 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
         }
         html {
             scroll-behavior: smooth;
@@ -32,15 +33,32 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* --- Additional Activities List Styling --- */
-        .additional-activities-list {
-            max-height: 12rem; /* Approx height for 5 items */
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
         }
-        .additional-activities-list.expanded {
-            max-height: 100rem; /* Large value to show all */
+        .pulsing-button {
+            animation: pulse 2s infinite;
+        }
+
+        /* --- List Styling --- */
+        .additional-activities-list, #timeline-container {
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+        }
+        .additional-activities-list {
+            max-height: 12rem;
+        }
+        #timeline-container {
+            max-height: 38rem; /* Approx 4 items */
+        }
+        .additional-activities-list.expanded, #timeline-container.expanded {
+            max-height: 200rem; /* Large value to show all */
         }
 
         /* --- Modal Styling --- */
@@ -80,7 +98,6 @@
                 </div>
             </div>
         </nav>
-
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <a href="#about" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_about">Про нас</a>
             <a href="#directions" class="block py-2 px-6 text-sm text-gray-600 hover:bg-gray-100" data-translate="nav_directions">Напрями діяльності</a>
@@ -91,52 +108,53 @@
     </header>
 
     <main>
-        <section id="about" class="pt-20 pb-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(249, 250, 251, 0.85), rgba(249, 250, 251, 0.85)), url('images/ukrgaztechprojekt/background.png');">
+        <section id="about" class="pt-20 pb-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(249, 250, 251, 0.85), rgba(249, 250, 251, 0.85)), url('images/ukrgaztechprojekt/background.png');">
             <div class="container mx-auto px-6">
                 <div class="max-w-5xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal-on-scroll" data-translate="hero_title">ТОВ "УКРГАЗТЕХПРОЕКТ"</h1>
-                    <div id="about-content" class="text-left text-gray-700 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll">
-                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-2 reveal-on-scroll" data-translate="hero_title">ТОВ "УКРГАЗТЕХПРОЕКТ"</h1>
+                    <p class="text-md md:text-lg text-gray-600 mb-8 reveal-on-scroll" data-translate="hero_subtitle"></p>
+                    <div id="about-content" class="text-left text-gray-700 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll"></div>
                 </div>
             </div>
         </section>
 
+        <section id="benefits" class="py-20 bg-white/95 backdrop-blur-sm overflow-x-hidden">
+            <div id="benefits-container" class="container mx-auto px-6"></div>
+        </section>
+
         <div class="w-full border-t border-gray-200"></div>
 
-        <section id="directions" class="py-20 bg-slate-50 overflow-x-hidden">
+        <section id="directions" class="py-20 bg-slate-50/95 backdrop-blur-sm overflow-x-hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center reveal-on-scroll">
                     <h2 class="text-3xl font-bold mb-2" data-translate="directions_title">Напрями Діяльності</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
-                <div id="directions-container" class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg reveal-on-scroll">
-                </div>
+                <div id="directions-container" class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg reveal-on-scroll"></div>
             </div>
         </section>
 
         <div class="w-full border-t border-gray-200"></div>
 
-        <section id="projects" class="py-20 bg-white overflow-x-hidden">
+        <section id="projects" class="py-20 bg-white/95 backdrop-blur-sm overflow-x-hidden">
             <div class="container mx-auto px-6">
                  <div class="text-center reveal-on-scroll">
                     <h2 class="text-3xl font-bold text-center mb-2" data-translate="projects_title">Виконані Роботи</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
-                <div id="projects-list" class="max-w-4xl mx-auto space-y-6">
-                </div>
+                <div id="projects-list" class="relative max-w-4xl mx-auto"></div>
             </div>
         </section>
 
         <div class="w-full border-t border-gray-200"></div>
 
-        <section id="clients" class="py-20 bg-slate-50 overflow-x-hidden">
+        <section id="clients" class="py-20 bg-slate-50/95 backdrop-blur-sm overflow-x-hidden">
             <div class="container mx-auto px-6">
                  <div class="text-center reveal-on-scroll">
                     <h2 class="text-3xl font-bold text-center mb-2" data-translate="clients_title">Наші Клієнти</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
-                <div id="clients-list" class="max-w-5xl mx-auto">
-                </div>
+                <div id="clients-list" class="max-w-5xl mx-auto"></div>
             </div>
         </section>
 
@@ -146,12 +164,7 @@
                     <h2 class="text-3xl font-bold mb-2" data-translate="contact_title">Контакти</h2>
                     <div class="w-24 h-1 bg-blue-500 mx-auto mb-12"></div>
                 </div>
-                <div class="max-w-3xl mx-auto space-y-6 reveal-on-scroll">
-                    <div id="contact-info-wrapper" class="flex flex-col items-center space-y-8">
-                        <div id="contact-info-row1" class="flex justify-center"></div>
-                        <div id="contact-info-row2" class="flex flex-wrap justify-center gap-8"></div>
-                    </div>
-                </div>
+                <div id="contact-info-wrapper" class="max-w-3xl mx-auto space-y-4 reveal-on-scroll"></div>
             </div>
         </section>
     </main>
@@ -172,20 +185,28 @@
         </div>
     </div>
 
-
     <script>
     const contentData = {
         ua: {
             "companyName": "УКРГАЗТЕХПРОЕКТ",
             "nav_about": "Про нас", "nav_directions": "Напрями діяльності", "nav_projects": "Виконані роботи", "nav_clients": "Наші клієнти", "nav_contact": "Контакти",
             "hero_title": "ТОВ \"УКРГАЗТЕХПРОЕКТ\"",
+            "hero_subtitle": "багатопрофільна інжинірингова і торговельна компанія",
             "about": {
                 "history_title": "Історія та компетенції",
-                "history_content": [ "Компанія УКРГАЗТЕХПРОЕКТ заснована у 2008 році і спочатку займалася інжиніринговою діяльністю.", "Згодом ми розширили сферу діяльності і зараз є постачальником ресурсів для нафтогазового та енергетичного сектору, великих промислових підприємств тощо.", "Вибудовуємо персональну модель співпраці з кожним клієнтом, ураховуючи специфіку бізнесу та відповідні вимоги.", "Кваліфіковані співробітники нашої компанії забезпечують оптимальні умови співпраці: мінімальний термін виконання замовлення, розумні ціни, гнучку форму оплати, швидку доставку до складу, інформаційно-консультативну підтримку.", "Найвища відповідальність до роботи, своєчасність і надійність, оптимальне співвідношення ціни і якості послуг, інтеграційний підхід у взаємодії з контрагентами.", "Компанію пов’язують тісні відносини з багатьма виробниками нафтогазового обладнання в Україні, країнах Європейського союзу і Китаї. Спектр продукції, що поставляється досить широкий, включаючи повний перелік вузлів, запасних частин і витратних матеріалів, що застосовуються в нафтогазовій галузі.", "ТОВ УКРГАЗТЕХПРОЕКТ — це організація, яка поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Завданням компанії є не лише створення нових знань чи технологій, але й їх практичне впровадження у виробництво.", "Без перебільшення можна сказати, що наша компанія поєднує науку та виробництво, для впровадження передових рішень у нафтогазовидобуванні. Ми прагнемо підвищити ефективність кожного процесу та мінімізувати вплив на довкілля. Наша мета – бути надійним партнером у розвитку енергетичного потенціалу країни." ],
-                "mission": { "title": "Місія", "content": "Забезпечувати сталий розвиток нафтогазовидобувної галузі шляхом створення й впровадження інноваційних технологій розвідки, видобутку, зберігання, транспортування та переробки вуглеводнів, що підвищують ефективність виробництва, знижують екологічні ризики та сприяють енергетичній безпеці країни." },
-                "goal": { "title": "Мета", "content": "Створення й впровадження сучасного обладнання та технологій для підвищення продуктивності свердловин, ефективності роботи технологічного обладнання і зменшення собівартості видобутку, зберігання та транспортування вуглеводнів. Розробка та застосування екологічно безпечних методів, оптимізація використання енергоресурсів, інтеграція наукових розробок у виробничі процеси та підвищення кваліфікації персоналу." },
-                "vision": { "title": "Візія", "content": "Бути лідером інновацій у нафтогазовидобувній галузі, створюючи високотехнологічні та екологічно безпечні рішення, які забезпечують ефективне використання природних ресурсів, енергетичну незалежність країни та сталий розвиток суспільства. Ми бачимо майбутнє, де нафтогазовидобування стає розумним, екологічним і максимально ефективним." }
+                "history_content": [ "Компанія УКРГАЗТЕХПРОЕКТ заснована у 2008 році і спочатку займалася інжиніринговою діяльністю.", "Згодом ми розширили сферу діяльності і зараз є постачальником ресурсів для нафтогазового та енергетичного сектору, великих промислових підприємств тощо.", "Вибудовуємо персональну модель співпраці з кожним клієнтом, ураховуючи специфіку бізнесу та відповідні вимоги.", "Кваліфіковані співробітники нашої компанії забезпечують оптимальні умови співпраці: мінімальний термін виконання замовлення, розумні ціни, гнучку форму оплати, швидку доставку до складу, інформаційно-консультативну підтримку.", "Найвища відповідальність до роботи, своєчасність і надійність, оптимальне співвідношення ціни і якості послуг, інтеграційний підхід у взаємодії з контрагентами.", "Компанію пов’язують тісні відносини з багатьма виробниками нафтогазового обладнання в Україні, країнах Європейського союзу і Китаї.", "Спектр продукції, що поставляється досить широкий, включаючи повний перелік вузлів, запасних частин і витратних матеріалів, що застосовуються в нафтогазовій галузі.", "ТОВ УКРГАЗТЕХПРОЕКТ — це організація, яка поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Завданням компанії є не лише створення нових знань чи технологій, але й їх практичне впровадження у виробництво.", "Наша компанія поєднує науку та виробництво для впровадження передових рішень у нафтогазовидобуванні. Ми прагнемо підвищити ефективність кожного процесу та мінімізувати вплив на довкілля. Наша мета – бути надійним партнером у розвитку енергетичного потенціалу країни." ],
+                "mission": { "title": "Місія...", "content": "Забезпечувати сталий розвиток нафтогазовидобувної галузі шляхом створення й впровадження інноваційних технологій розвідки, видобутку, зберігання, транспортування та переробки вуглеводнів, що підвищують ефективність виробництва, знижують екологічні ризики та сприяють енергетичній безпеці країни." },
+                "goal": { "title": "Мета...", "content": "Створення й впровадження сучасного обладнання та технологій для підвищення продуктивності свердловин, ефективності роботи технологічного обладнання і зменшення собівартості видобутку, зберігання та транспортування вуглеводнів. Розробка та застосування екологічно безпечних методів, оптимізація використання енергоресурсів, інтеграція наукових розробок у виробничі процеси та підвищення кваліфікації персоналу." },
+                "vision": { "title": "Візія...", "content": "Бути лідером інновацій у нафтогазовидобувній галузі, створюючи високотехнологічні та екологічно безпечні рішення, які забезпечують ефективне використання природних ресурсів, енергетичну незалежність країни та сталий розвиток суспільства. Ми бачимо майбутнє, де нафтогазовидобування стає розумним, екологічним і максимально ефективним." }
             },
+            "benefits_title": "Наші переваги",
+            "benefits": [
+                { "title": "Гнучка система ціноутворення", "description": "Якісно підходимо до цінових пропозицій, ураховуючи конкретні потреби, графіки постачань та обсяги закупівель.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1m-7 6h7m-3-3h3'></path>" },
+                { "title": "Зручні умови оплати", "description": "Розуміємо, що у всіх компаній свій платіжний календар, тому з кожним Клієнтом обговорюємо персональний механізм оплати.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z'></path>" },
+                { "title": "Своєчасне постачання", "description": "Переконані, що бізнес повинен працювати безперервно, тому вчасно постачаємо необхідний обсяг ресурсів.", "icon": "<path d='M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z'></path><path stroke-linecap='round' stroke-linejoin='round' d='M13 17H6V6h10v4l4 4H13zM6 6L3 9h3v8h12v-2'></path>" },
+                { "title": "Висока якість продукту", "description": "Пропонуємо ресурси високої якості, що підтверджує співпрацю з надійними виробниками (сертифікати, специфікації).", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'></path>" },
+                { "title": "Широкий асортимент", "description": "Пропонуємо кілька варіантів готової продукції і допомагаємо зробити оптимальний вибір для ваших завдань.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M4 6h16M4 10h16M4 14h16M4 18h16'></path>" }
+            ],
             "directions_title": "Напрями Діяльності",
             "directions": {
                 "main_title": "Основний напрям", "main_activity": "Діяльність у сфері інжинірингу, геології та геодезії, технічне консультування (71.12).", "additional_title": "Додаткові сфери",
@@ -211,20 +232,32 @@
             "clients_title": "Наші Клієнти",
             "clients": [ { "name": "ПАТ \"Укртрансгаз\"" }, { "name": "ДАТ “Чорноморнафтогаз”" }, { "name": "Філія \"УМГ \"Київтрансгаз\"" }, { "name": "Філія \"УМГ \"Донбастрансгаз\"" }, { "name": "Філія \"УМГ \"Львівтрансгаз\"" } ],
             "contact_title": "Контакти",
-            "contact_details": [ { "label": "Адреса", "value": "04107, м. Київ, вул. Підгірна/Татарська, 3/7" }, { "label": "ЄДРПОУ", "value": "36215848" }, { "label": "МФО", "value": "380775" } ],
+            "contact_details": [
+                { "label": "Адреса", "value": "Київ, вул. Підгірна/Татарська, будинок, 3/7" },
+                { "label": "ЄДРПОУ", "value": "36215848" }
+            ],
             "footer_rights": "Всі права захищено."
         },
         en: {
             "companyName": "UKRGAZTEKHPROEKT",
             "nav_about": "About Us", "nav_directions": "Areas of Activity", "nav_projects": "Completed Works", "nav_clients": "Our Clients", "nav_contact": "Contact",
             "hero_title": "UKRGAZTEKHPROEKT LLC",
+            "hero_subtitle": "multidisciplinary engineering and trading company",
             "about": {
                 "history_title": "History and Competencies",
-                "history_content": [ "UKRGAZTEKHPROEKT was founded in 2008 and initially focused on engineering activities.", "Subsequently, we expanded our scope of activities and are now a supplier of resources for the oil and gas and energy sectors, large industrial enterprises, and more.", "We build a personal model of cooperation with each client, taking into account the specifics of their business and corresponding requirements.", "The qualified employees of our company ensure optimal conditions for cooperation: minimal order fulfillment time, reasonable prices, flexible payment terms, fast delivery to the warehouse, and information and consulting support.", "The highest responsibility in our work, timeliness and reliability, an optimal price-to-quality ratio for services, and an integrative approach in interacting with counterparties.", "The company has close relationships with many manufacturers of oil and gas equipment in Ukraine, the European Union, and China. The range of supplied products is quite wide, including a full list of components, spare parts, and consumables used in the oil and gas industry.", "UKRGAZTEKHPROEKT LLC is an organization that combines research, development, and production activities. The company's task is not only to create new knowledge or technologies but also to implement them into production.", "It is no exaggeration to say that our company combines science and production to implement advanced solutions in oil and gas extraction. We strive to increase the efficiency of every process and minimize environmental impact. Our goal is to be a reliable partner in developing the country's energy potential." ],
-                "mission": { "title": "Mission", "content": "To ensure the sustainable development of the oil and gas production industry by creating and implementing innovative technologies for exploration, production, storage, transportation, and processing of hydrocarbons, which increase production efficiency, reduce environmental risks, and contribute to the country's energy security." },
-                "goal": { "title": "Goal", "content": "The creation and implementation of modern equipment and technologies to increase well productivity, improve the efficiency of technological equipment, and reduce the cost of extraction, storage, and transportation of hydrocarbons. Development and application of environmentally friendly methods, optimization of energy resource use, integration of scientific developments into production processes, and staff qualification improvement." },
-                "vision": { "title": "Vision", "content": "To be a leader of innovation in the oil and gas production industry, creating high-tech and environmentally safe solutions that ensure the efficient use of natural resources, the country's energy independence, and the sustainable development of society. We see a future where oil and gas production becomes smart, ecological, and maximally effective." }
+                "history_content": [ "UKRGAZTEKHPROEKT was founded in 2008 and initially focused on engineering activities.", "Subsequently, we expanded our scope of activities and are now a supplier of resources for the oil and gas and energy sectors, large industrial enterprises, and more.", "We build a personal model of cooperation with each client, taking into account the specifics of their business and corresponding requirements.", "The qualified employees of our company ensure optimal conditions for cooperation: minimal order fulfillment time, reasonable prices, flexible payment terms, fast delivery to the warehouse, and information and consulting support.", "The highest responsibility in our work, timeliness and reliability, an optimal price-to-quality ratio for services, and an integrative approach in interacting with counterparties.", "The company has close relationships with many manufacturers of oil and gas equipment in Ukraine, the European Union, and China.", "The range of supplied products is quite wide, including a full list of components, spare parts, and consumables used in the oil and gas industry.", "UKRGAZTEKHPROEKT LLC is an organization that combines research, development, and production activities. The company's task is not only to create new knowledge or technologies but also to implement them into production.", "Our company combines science and production to implement advanced solutions in oil and gas extraction. We strive to increase the efficiency of every process and minimize environmental impact. Our goal is to be a reliable partner in developing the country's energy potential." ],
+                "mission": { "title": "Mission...", "content": "To ensure the sustainable development of the oil and gas production industry by creating and implementing innovative technologies for exploration, production, storage, transportation, and processing of hydrocarbons, which increase production efficiency, reduce environmental risks, and contribute to the country's energy security." },
+                "goal": { "title": "Goal...", "content": "The creation and implementation of modern equipment and technologies to increase well productivity, improve the efficiency of technological equipment, and reduce the cost of extraction, storage, and transportation of hydrocarbons. Development and application of environmentally friendly methods, optimization of energy resource use, integration of scientific developments into production processes, and staff qualification improvement." },
+                "vision": { "title": "Vision...", "content": "To be a leader of innovation in the oil and gas production industry, creating high-tech and environmentally safe solutions that ensure the efficient use of natural resources, the country's energy independence, and the sustainable development of society. We see a future where oil and gas production becomes smart, ecological, and maximally effective." }
             },
+            "benefits_title": "Our Advantages",
+            "benefits": [
+                { "title": "Flexible Pricing System", "description": "We approach price offers effectively, considering specific needs, delivery schedules, and purchase volumes.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1m-7 6h7m-3-3h3'></path>" },
+                { "title": "Convenient Payment Terms", "description": "We understand that every company has its own payment calendar, so we discuss a personal payment mechanism with each Client.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z'></path>" },
+                { "title": "Timely Delivery", "description": "We are convinced that business must operate continuously, so we supply the necessary volume of resources on time.", "icon": "<path d='M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z'></path><path stroke-linecap='round' stroke-linejoin='round' d='M13 17H6V6h10v4l4 4H13zM6 6L3 9h3v8h12v-2'></path>" },
+                { "title": "High Product Quality", "description": "We offer high-quality resources, confirmed by cooperation with reliable manufacturers (certificates, specifications).", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z'></path>" },
+                { "title": "Wide Assortment", "description": "We offer several options of finished products and help you make the optimal choice for your tasks.", "icon": "<path stroke-linecap='round' stroke-linejoin='round' d='M4 6h16M4 10h16M4 14h16M4 18h16'></path>" }
+            ],
             "directions_title": "Areas of Activity",
             "directions": {
                 "main_title": "Primary Area", "main_activity": "Activities in engineering, geology and geodesy, technical consultancy (71.12).", "additional_title": "Additional Areas",
@@ -250,7 +283,10 @@
             "clients_title": "Our Clients",
             "clients": [ { "name": "PJSC \"Ukrtransgaz\"" }, { "name": "JSC “Chornomornaftogaz”" }, { "name": "Branch \"UMG \"Kyivtransgaz\"" }, { "name": "Branch \"UMG \"Donbastransgaz\"" }, { "name": "Branch \"UMG \"Lvivtransgaz\"" } ],
             "contact_title": "Contact",
-             "contact_details": [ { "label": "Address", "value": "3/7 Pidhirna/Tatarska St, Kyiv, 04107" }, { "label": "EDRPOU", "value": "36215848" }, { "label": "MFO", "value": "380775" } ],
+            "contact_details": [
+                { "label": "Address", "value": "Kyiv, Pidhirna/Tatarska St, Building 3/7" },
+                { "label": "EDRPOU", "value": "36215848" }
+            ],
             "footer_rights": "All rights reserved."
         }
     };
@@ -264,8 +300,7 @@
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.querySelectorAll('header a[href^="#"]');
-
-        // Modal elements
+        
         const modal = document.getElementById('modal');
         const modalContent = document.getElementById('modal-content');
         const modalTitle = document.getElementById('modal-title');
@@ -273,7 +308,7 @@
         const modalCloseBtn = document.getElementById('modal-close-btn');
 
         const openModal = (title, body) => {
-            modalTitle.textContent = title;
+            modalTitle.textContent = title.replace('...', '');
             modalBody.textContent = body;
             modal.classList.remove('hidden');
             document.body.classList.add('modal-open');
@@ -293,16 +328,10 @@
         };
         
         modalCloseBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
         const setupAnimations = () => {
              const animatedElements = document.querySelectorAll('.reveal-on-scroll');
-             if (animatedElements.length === 0) return;
-             
              const animationObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -311,16 +340,13 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
             animatedElements.forEach(el => animationObserver.observe(el));
         }
 
         const translatePage = () => {
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
-                if (siteContent[key] && typeof siteContent[key] === 'string') {
-                    el.innerHTML = siteContent[key];
-                }
+                if (siteContent[key] && typeof siteContent[key] === 'string') el.innerHTML = siteContent[key];
             });
             document.documentElement.lang = currentLang;
             updateDynamicContent();
@@ -338,17 +364,18 @@
         };
         
         const attachEventListeners = () => {
-            // Directions "Show More"
-            const showMoreBtn = document.getElementById('show-more-activities-btn');
-            const list = document.querySelector('.additional-activities-list');
-            if (showMoreBtn && list) {
-                showMoreBtn.addEventListener('click', () => {
-                    const isExpanded = list.classList.toggle('expanded');
-                    showMoreBtn.textContent = isExpanded ? siteContent.directions.show_less_text : siteContent.directions.show_more_text;
-                });
-            }
+            document.getElementById('show-more-activities-btn')?.addEventListener('click', (e) => {
+                const list = document.querySelector('.additional-activities-list');
+                const isExpanded = list.classList.toggle('expanded');
+                e.target.textContent = isExpanded ? siteContent.directions.show_less_text : siteContent.directions.show_more_text;
+            });
 
-            // About section modal triggers
+            document.getElementById('show-more-projects-btn')?.addEventListener('click', (e) => {
+                const list = document.getElementById('timeline-container');
+                const isExpanded = list.classList.toggle('expanded');
+                e.target.textContent = isExpanded ? siteContent.directions.show_less_text : siteContent.directions.show_more_text;
+            });
+
             document.getElementById('mission-trigger')?.addEventListener('click', () => openModal(siteContent.about.mission.title, siteContent.about.mission.content));
             document.getElementById('goal-trigger')?.addEventListener('click', () => openModal(siteContent.about.goal.title, siteContent.about.goal.content));
             document.getElementById('vision-trigger')?.addEventListener('click', () => openModal(siteContent.about.vision.title, siteContent.about.vision.content));
@@ -357,86 +384,79 @@
         const updateDynamicContent = () => {
             if (!siteContent) return;
 
-            // About section
+            // About
             const aboutContainer = document.getElementById('about-content');
             const aboutData = siteContent.about;
             if(aboutData) {
-                const historyHtml = aboutData.history_content.map(p => `<p>${p}</p>`).join('');
-                const interactiveItems = [
-                    { id: 'mission-trigger', data: aboutData.mission },
-                    { id: 'goal-trigger', data: aboutData.goal },
-                    { id: 'vision-trigger', data: aboutData.vision }
-                ].map(item => `
-                    <div class="flex-1">
-                        <button id="${item.id}" class="w-full text-left bg-white/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 hover:bg-white cursor-pointer border border-transparent hover:border-blue-300">
-                            <div class="font-semibold text-lg flex justify-between items-center">
-                                ${item.data.title}
-                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-4.5 0V6M13.5 6L21 13.5M21 13.5V6" /></svg>
-                            </div>
-                        </button>
-                    </div>
-                `).join('');
-
-                aboutContainer.innerHTML = `
-                    <h2 class="text-2xl font-bold mb-4 text-center">${aboutData.history_title}</h2>
-                    <div class="space-y-4">${historyHtml}</div>
-                    <div class="flex flex-col md:flex-row gap-6 mt-8">
-                        ${interactiveItems}
-                    </div>
-                `;
+                const historyHtml = aboutData.history_content.map((p, i) => `<p class="md:${i % 2 === 0 ? 'text-left' : 'text-right'}">${p}</p>`).join('');
+                const interactiveItems = [ { id: 'mission-trigger', data: aboutData.mission }, { id: 'goal-trigger', data: aboutData.goal }, { id: 'vision-trigger', data: aboutData.vision } ]
+                    .map(item => `
+                        <div class="flex-1">
+                            <button id="${item.id}" class="pulsing-button w-full text-center justify-center bg-white/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 hover:bg-white cursor-pointer border border-transparent hover:border-blue-300">
+                                <span class="font-semibold text-lg">${item.data.title}</span>
+                            </button>
+                        </div>
+                    `).join('');
+                aboutContainer.innerHTML = `<h2 class="text-2xl font-bold mb-4 text-center">${aboutData.history_title}</h2><div class="space-y-4">${historyHtml}</div><div class="flex flex-col md:flex-row gap-6 mt-8">${interactiveItems}</div>`;
             }
 
-            // Directions section
+            // Benefits
+            const benefitsContainer = document.getElementById('benefits-container');
+            if (siteContent.benefits) {
+                const benefitsHtml = siteContent.benefits.map((benefit, index) => `
+                    <div class="reveal-on-scroll text-center p-6 bg-white rounded-lg shadow-lg" style="transition-delay: ${index * 100}ms;">
+                        <div class="flex justify-center items-center mb-4 bg-blue-100 rounded-full w-16 h-16 mx-auto">
+                           <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><g transform="translate(2 2)">${benefit.icon}</g></svg>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">${benefit.title}</h4>
+                        <p class="text-gray-600">${benefit.description}</p>
+                    </div>
+                `).join('');
+                benefitsContainer.innerHTML = `<div class="text-center reveal-on-scroll"><h2 class="text-3xl font-bold mb-2" data-translate="benefits_title">${siteContent.benefits_title}</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">${benefitsHtml}</div>`;
+            }
+
+
+            // Directions
             const directionsContainer = document.getElementById('directions-container');
             const dirData = siteContent.directions;
             if(dirData) {
                 const additionalActivitiesHtml = dirData.additional_activities.map(activity => `<li class="pb-2">${activity}</li>`).join('');
-                directionsContainer.innerHTML = `
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-blue-600">${dirData.main_title}</h3>
-                            <p>${dirData.main_activity}</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2 text-blue-600">${dirData.additional_title}</h3>
-                            <ul class="list-disc list-inside text-gray-700 additional-activities-list">
-                                ${additionalActivitiesHtml}
-                            </ul>
-                            <button id="show-more-activities-btn" class="mt-4 text-blue-600 font-semibold hover:underline">${dirData.show_more_text}</button>
-                        </div>
-                    </div>
-                `;
+                directionsContainer.innerHTML = `<div class="space-y-6"><div><h3 class="text-xl font-bold mb-2 text-blue-600">${dirData.main_title}</h3><p>${dirData.main_activity}</p></div><div><h3 class="text-xl font-bold mb-2 text-blue-600">${dirData.additional_title}</h3><ul class="list-disc list-inside text-gray-700 additional-activities-list">${additionalActivitiesHtml}</ul><button id="show-more-activities-btn" class="mt-4 text-blue-600 font-semibold hover:underline">${dirData.show_more_text}</button></div></div>`;
             }
 
-            // Projects
+            // Projects Timeline
             const projectsList = document.getElementById('projects-list');
             if (siteContent.projects) {
-                projectsList.innerHTML = siteContent.projects.map((project, index) => `
-                    <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 reveal-on-scroll" style="transition-delay: ${index * 100}ms;">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
-                            <span class="font-bold text-lg text-gray-800">${project.year}</span>
-                            ${project.code ? `<span class="text-xs font-semibold text-gray-500 bg-gray-100 px-2 py-1 rounded-full mt-2 sm:mt-0">${project.code}</span>` : ''}
+                const timelineHtml = siteContent.projects.map((project, index) => {
+                    const side = index % 2 === 0 ? 'left' : 'right';
+                    const alignmentClass = side === 'left' ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8';
+                    const marginClass = side === 'left' ? 'md:mr-auto' : 'md:ml-auto';
+                    return `
+                    <div class="mb-8 flex justify-between items-center w-full ${side === 'right' ? 'flex-row-reverse' : ''}">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">${project.year}</h1>
                         </div>
-                        <p class="text-gray-700 mb-4">${project.description}</p>
-                        <div class="border-t border-gray-200 pt-3">
-                            <p class="text-sm text-gray-600"><strong class="font-semibold">Замовник:</strong> ${project.client}</p>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 p-4 ${alignmentClass}">
+                             ${project.code ? `<p class="text-xs font-semibold text-gray-500 mb-2">${project.code}</p>` : ''}
+                             <p class="text-sm text-gray-700 mb-2">${project.description}</p>
+                             <p class="text-xs text-gray-500"><strong class="font-semibold">Замовник:</strong> ${project.client}</p>
                         </div>
-                    </div>
-                `).join('');
+                    </div>`;
+                }).join('');
+                projectsList.innerHTML = `<div id="timeline-container" class="relative wrap overflow-hidden p-2 h-full"><div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>${timelineHtml}</div><div class="text-center mt-6"><button id="show-more-projects-btn" class="text-blue-600 font-semibold hover:underline">${siteContent.directions.show_more_text}</button></div>`;
             }
             
             // Clients
             const clientsList = document.getElementById('clients-list');
              if(siteContent.clients) {
-                clientsList.innerHTML = `
-                    <div class="flex flex-wrap justify-center gap-8">
-                        ${siteContent.clients.map(client => `
-                            <div class="reveal-on-scroll w-full sm:w-2/5 lg:w-1/4 p-6 bg-white rounded-lg shadow-md flex items-center justify-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
-                                <p class="text-center font-semibold text-gray-700">${client.name}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
+                clientsList.innerHTML = `<div class="flex flex-wrap justify-center gap-8">${siteContent.clients.map(client => `<div class="reveal-on-scroll w-full sm:w-2/5 lg:w-1/4 p-6 bg-white rounded-lg shadow-md flex items-center justify-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"><p class="text-center font-semibold text-gray-700">${client.name}</p></div>`).join('')}</div>`;
+            }
+            
+            // Contact
+            const contactWrapper = document.getElementById('contact-info-wrapper');
+            if (siteContent.contact_details) {
+                contactWrapper.innerHTML = siteContent.contact_details.map(detail => `<p><strong class="font-semibold">${detail.label}:</strong> ${detail.value}</p>`).join('');
             }
             
             setupAnimations();
