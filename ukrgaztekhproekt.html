@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТОВ "УКРГАЗТЕХПРОЕКТ"</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/ukrgaztekhproekt/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,6 +23,12 @@
         .nav-link.active {
             color: #3b82f6; /* blue-500 */
         }
+        .text-highlight {
+            color: #3b82f6; 
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
         
         /* --- Animations --- */
         .reveal-on-scroll {
@@ -34,16 +41,18 @@
             transform: translateY(0);
         }
         
+        /* --- Animations --- */
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.25); 
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+                box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
             }
         }
+
         .pulsing-button {
-            animation: pulse 2.5s infinite;
+            animation: pulse 4.5s infinite;
         }
 
         /* --- List Styling (FIXED) --- */
@@ -115,12 +124,12 @@
     </header>
 
     <main>
-        <section id="about" class="pt-20 pb-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(249, 250, 251, 0.85), rgba(249, 250, 251, 0.85)), url('images/ukrgaztekhproekt/background.png');">
+        <section id="about" class="pt-20 pb-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(249, 250, 251, 0.4), rgba(249, 250, 251, 0.3)), url('images/ukrgaztekhproekt/background.png');">
             <div class="container mx-auto px-6">
                 <div class="max-w-5xl mx-auto text-center">
                     <h1 class="text-4xl md:text-5xl font-bold mb-2 reveal-on-scroll" data-translate="hero_title">ТОВ "УКРГАЗТЕХПРОЕКТ"</h1>
                     <p class="text-md md:text-lg text-gray-600 mb-8 reveal-on-scroll" data-translate="hero_subtitle"></p>
-                    <div id="about-content" class="text-left text-gray-700 space-y-6 bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll"></div>
+                    <div id="about-content" class="text-left text-gray-700 space-y-6 bg-white/55 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll"></div>
                 </div>
             </div>
         </section>
@@ -129,19 +138,19 @@
             <div id="benefits-container" class="container mx-auto px-6"></div>
         </section>
 
-        <div class="w-full border-t border-gray-200"></div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50"></div>
 
-        <section id="directions" class="py-20 bg-slate-50/95 backdrop-blur-sm overflow-x-hidden">
+        <section id="directions" class="pt-20 pb-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(249, 250, 251, 0.4), rgba(249, 250, 251, 0.3)), url('images/ukrgaztekhproekt/background_pipes.png');">
             <div class="container mx-auto px-6">
                 <div class="text-center reveal-on-scroll">
                     <h2 class="text-3xl font-bold mb-2" data-translate="directions_title">Напрями Діяльності</h2>
                     <div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div>
                 </div>
-                <div id="directions-container" class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg reveal-on-scroll"></div>
+                <div id="directions-container" class="text-left text-gray-700 space-y-6 bg-white/55 backdrop-blur-sm p-8 rounded-lg shadow-lg reveal-on-scroll"></div>
             </div>
         </section>
 
-        <div class="w-full border-t border-gray-200"></div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50"></div>
 
         <section id="projects" class="py-20 bg-white/95 backdrop-blur-sm overflow-x-hidden">
             <div class="container mx-auto px-6">
@@ -153,7 +162,7 @@
             </div>
         </section>
 
-        <div class="w-full border-t border-gray-200"></div>
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent opacity-50"></div>
 
         <section id="clients" class="py-20 bg-slate-50/95 backdrop-blur-sm overflow-x-hidden">
             <div class="container mx-auto px-6">
@@ -201,14 +210,14 @@
             "hero_subtitle": "багатопрофільна інжинірингова і торговельна компанія",
             "about": {
                 "history_title": "Історія та компетенції",
-                "history_content": [ "Компанія УКРГАЗТЕХПРОЕКТ заснована у 2008 році і спочатку займалася інжиніринговою діяльністю.",
+                "history_content": [ "Компанія <span class='text-highlight'>УКРГАЗТЕХПРОЕКТ</span> заснована у 2008 році і спочатку займалася інжиніринговою діяльністю.",
                     "Згодом ми розширили сферу діяльності і зараз є постачальником ресурсів для нафтогазового та енергетичного сектора, хімічної і харчової промисловості, металургії та медицині, великих промислових підприємств тощо.",
                     "Вибудовуємо персональну модель співпраці з кожним клієнтом, ураховуючи специфіку бізнесу та відповідні вимоги.",
                     "Кваліфіковані співробітники нашої компанії забезпечують оптимальні умови співпраці: мінімальний термін виконання замовлення, розумні ціни, гнучку форму оплати, швидку доставку до складу, інформаційно-консультативну підтримку.",
                     "Найвища відповідальність до роботи, своєчасність і надійність, оптимальне співвідношення ціни і якості послуг, інтеграційний підхід у взаємодії з контрагентами.",
                     "Компанію пов’язують тісні відносини з багатьма виробниками обладнання та устатковання в Україні, країнах Європейського союзу, Китаї, Турції та інших.",
                     "Спектр продукції, що поставляється досить широкий, включаючи повний перелік вузлів, запасних частин і витратних матеріалів, що застосовуються в різних галузях економіки.",
-                    "ТОВ УКРГАЗТЕХПРОЕКТ — це організація, яка поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Завданням компанії є не лише створення нових знань чи технологій, але й їх практичне впровадження у виробництво.",
+                    "<span class='text-highlight'>ТОВ УКРГАЗТЕХПРОЕКТ</span> — це організація, яка поєднує науково-дослідну, дослідно-конструкторську та виробничу діяльність. Завданням компанії є не лише створення нових знань чи технологій, але й їх практичне впровадження у виробництво.",
                     "Наша компанія поєднує науку та виробництво для впровадження передових рішень. Ми прагнемо підвищити ефективність кожного процесу та мінімізувати вплив на довкілля. Наша мета – бути надійним партнером у розвитку енергетичного потенціалу країни."
                     ],
                 "mission": { "title": "Місія...", "content": "Ми створюємо та впроваджуємо інжинірингові, технологічні й торговельні рішення, що забезпечують надійність, безпеку та ефективність виробничих процесів у нафтогазовому й енергетичному секторах, хімічній і харчовій промисловості, металургії та медицині." },
@@ -432,10 +441,8 @@
                         <div class="flex-shrink-0 flex justify-center items-center mb-4 w-20 h-20 mx-auto">
                            <img src="${benefit.icon}" alt="${benefit.title}" class="w-20 h-20 object-contain">
                         </div>
-                        <div class="flex flex-col flex-grow">
-                            <h4 class="text-lg font-bold mb-2">${benefit.title}</h4>
-                            <p class="text-gray-600 flex-grow">${benefit.description}</p>
-                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-white">${benefit.title}</h4>
+                        <p class="text-slate-600">${benefit.description}</p>
                     </div>
                 `).join('');
                 benefitsContainer.innerHTML = `<div class="text-center reveal-on-scroll"><h2 class="text-3xl font-bold mb-2" data-translate="benefits_title">${siteContent.benefits_title}</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div></div><div class="flex flex-wrap justify-center gap-8">${benefitsHtml}</div>`;
@@ -466,39 +473,44 @@
                     </div>`;
             }
 
-            // Projects Timeline
-            const projectsList = document.getElementById('projects-list');
-            if (siteContent.projects) {
-                const timelineHtml = siteContent.projects.map((project, index) => {
-                    const side = index % 2 === 0 ? 'left' : 'right';
-                    const marginClass = side === 'left' ? 'md:pr-8' : 'md:pl-8';
-                    return `
-                    <div class="mb-8 flex justify-between items-center w-full ${side === 'right' ? 'flex-row-reverse' : ''}">
-                        <div class="order-1 w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-gray-200 shadow-xl w-4 h-4 rounded-full"></div>
-                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 p-4 ${marginClass}">
-                             <div class="flex justify-between items-baseline mb-2 pb-2 border-b">
-                                <p class="text-sm font-bold text-blue-600">${project.year}</p>
-                                ${project.code ? `<p class="text-xs font-semibold text-gray-500 text-right">${project.code}</p>` : ''}
-                             </div>
-                             <p class="text-sm text-gray-700 mb-2">${project.description}</p>
-                             <p class="text-xs text-gray-500"><strong class="font-semibold">${currentLang === 'ua' ? 'Замовник' : 'Client'}:</strong> ${project.client}</p>
-                        </div>
-                    </div>`;
-                }).join('');
-                projectsList.innerHTML = `
-                    <div class="list-container">
-                        <div id="timeline-container" class="relative wrap overflow-hidden p-2 h-full expandable-list timeline-container-list">
-                            <div class="absolute border-opacity-20 border-gray-400 h-full border-2" style="left: 50%"></div>
-                            ${timelineHtml}
-                        </div>
-                        <div class="text-center mt-4">
-                            <button id="show-more-projects-btn" class="show-more-btn p-2 rounded-full hover:bg-gray-200 transition-colors">
-                                <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-                            </button>
-                        </div>
-                    </div>`;
-            }
+// Projects Timeline
+const projectsList = document.getElementById('projects-list');
+if (siteContent.projects) {
+    const timelineHtml = siteContent.projects.map((project, index) => {
+        const side = index % 2 === 0 ? 'left' : 'right';
+        // Zmieniamy padding na margines, aby karta nie nachodziła na środek
+        const marginClass = side === 'left' ? 'md:mr-10' : 'md:ml-10';
+        
+        return `
+        <div class="mb-8 flex justify-between items-center w-full relative ${side === 'right' ? 'flex-row-reverse' : ''}">
+            <div class="order-1 w-5/12 hidden md:block"></div>
+            
+            <div class="absolute left-1/2 transform -translate-x-1/2 z-20 bg-gray-200 shadow-xl w-4 h-4 rounded-full"></div>
+            
+            <div class="order-1 bg-white rounded-lg shadow-xl w-full md:w-5/12 p-4 ${marginClass}">
+                 <div class="flex justify-between items-baseline mb-2 pb-2 border-b">
+                    <p class="text-sm font-bold text-blue-600">${project.year}</p>
+                    ${project.code ? `<p class="text-xs font-semibold text-gray-500 text-right">${project.code}</p>` : ''}
+                 </div>
+                 <p class="text-sm text-gray-700 mb-2">${project.description}</p>
+                 <p class="text-xs text-gray-500"><strong class="font-semibold">${currentLang === 'ua' ? 'Замовник' : 'Client'}:</strong> ${project.client}</p>
+            </div>
+        </div>`;
+    }).join('');
+
+    projectsList.innerHTML = `
+        <div class="list-container">
+            <div id="timeline-container" class="relative wrap overflow-hidden p-2 h-full expandable-list timeline-container-list">
+                <div class="absolute border-opacity-20 border-gray-400 h-full border-2 left-1/2 transform -translate-x-1/2"></div>
+                ${timelineHtml}
+            </div>
+            <div class="text-center mt-4">
+                <button id="show-more-projects-btn" class="show-more-btn p-2 rounded-full hover:bg-gray-200 transition-colors">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+            </div>
+        </div>`;
+}
             
             // Clients
             const clientsList = document.getElementById('clients-list');
