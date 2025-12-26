@@ -21,10 +21,10 @@
             overflow: hidden;
         }
         .nav-link.active {
-            color: #3b82f6;
+            color: #205285;
         }
         .text-highlight {
-            color: #3b82f6; 
+            color: #205285; 
             padding: 2px 0px;
             border-radius: 4px;
             font-weight: 600;
@@ -190,12 +190,15 @@
     </footer>
     
     <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
-        <div id="modal-content" class="modal-content bg-white rounded-lg shadow-2xl p-8 max-w-2xl w-full relative transform opacity-0 scale-95">
-            <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
-            <p id="modal-body" class="text-gray-600"></p>
-            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+        <div id="modal-content" class="modal-content bg-cover bg-center rounded-2xl shadow-2xl max-w-2xl w-full relative transform opacity-0 scale-95 overflow-hidden border border-white/20" style="background-image: url('images/ukrgaztekhproekt/background_mision_goal_vision.png');">
+            <div class="bg-white/45 p-10 h-full w-full relative">
+                <h3 id="modal-title" class="text-3xl font-bold mb-6 text-black border-l-4 border-blue-400 pl-4"></h3>
+                <p id="modal-body" class="text-grey/95 leading-relaxed text-lg font-medium"></p>
+                
+                <button id="modal-close-btn" class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors bg-white/10 rounded-full p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -224,11 +227,11 @@
             },
             "benefits_title": "Наші переваги",
             "benefits": [
-                { "title": "Гнучка система ціноутворення", "description": "Якісно підходимо до цінових пропозицій, ураховуючи конкретні потреби, графіки постачань та обсяги закупівель.", "icon": "images/ukrgaztekhproekt/icons/priceflexbility_icon.png" },
-                { "title": "Зручні умови оплати", "description": "Розуміємо, що у всіх компаній свій платіжний календар, тому з кожним Клієнтом обговорюємо персональний механізм оплати.", "icon": "images/ukrgaztekhproekt/icons/payway_icon.png" },
-                { "title": "Своєчасне постачання", "description": "Переконані, що бізнес повинен працювати безперервно, тому вчасно постачаємо необхідний обсяг ресурсів.", "icon": "images/ukrgaztekhproekt/icons/transportation_icon.png" },
-                { "title": "Висока якість продукту", "description": "Пропонуємо ресурси високої якості, що підтверджує співпрацю з надійними виробниками (сертифікати, специфікації).", "icon": "images/ukrgaztekhproekt/icons/quality_icon.png" },
-                { "title": "Широкий асортимент", "description": "Пропонуємо кілька варіантів готової продукції і допомагаємо зробити оптимальний вибір для ваших завдань.", "icon": "images/ukrgaztekhproekt/icons/offerings_icon.png" }
+                { "title": "Гнучка система ціноутворення", "description": "Якісно підходимо до цінових пропозицій, ураховуючи конкретні потреби, графіки постачань та обсяги закупівель.", "icon": "images/ukrgaztekhproekt/icons/priceflexbility_icon_without_background.png", "bg": "images/ukrgaztekhproekt/flexible_pricing_system_background.png" },
+                { "title": "Зручні умови оплати", "description": "Розуміємо, що у всіх компаній свій платіжний календар, тому з кожним Клієнтом обговорюємо персональний механізм оплати.", "icon": "images/ukrgaztekhproekt/icons/payway_icon.png", "bg": "images/ukrgaztekhproekt/pricing_background.png"   },
+                { "title": "Своєчасне постачання", "description": "Переконані, що бізнес повинен працювати безперервно, тому вчасно постачаємо необхідний обсяг ресурсів.", "icon": "images/ukrgaztekhproekt/icons/transportation_icon.png", "bg": "images/ukrgaztekhproekt/transportation_background.png"   },
+                { "title": "Висока якість продукту", "description": "Пропонуємо ресурси високої якості, що підтверджує співпрацю з надійними виробниками (сертифікати, специфікації).", "icon": "images/ukrgaztekhproekt/icons/quality_icon.png", "bg": "images/ukrgaztekhproekt/high_poduct_quality_background.png"   },
+                { "title": "Широкий асортимент", "description": "Пропонуємо кілька варіантів готової продукції і допомагаємо зробити оптимальний вибір для ваших завдань.", "icon": "images/ukrgaztekhproekt/icons/offerings_icon.png", "bg": "images/ukrgaztekhproekt/offerings_background.png"   }
             ],
             "directions_title": "Напрями Діяльності",
             "directions": {
@@ -255,8 +258,9 @@
             "clients": [ { "name": "ПАТ \"Укртрансгаз\"" }, { "name": "ДАТ “Чорноморнафтогаз”" }, { "name": "Філія \"УМГ \"Київтрансгаз\"" }, { "name": "Філія \"УМГ \"Донбастрансгаз\"" }, { "name": "Філія \"УМГ \"Львівтрансгаз\"" } ],
             "contact_title": "Контакти",
             "contact_details": [
-                { "label": "Адреса", "value": "Київ, вул. Підгірна/Татарська, будинок, 3/7" },
+                { "label": "Адреса", "value": "Київ, вул. Підгірна/Татарська, будинок 3/7" },
                 { "label": "Телефон", "value": "+380983410698" },
+                { "label": "E-Mail", "value": "office@ukrgaztekhproekt.com.ua" },
                 { "label": "ЄДРПОУ", "value": "36215848" }, 
                 { "label": "МФО", "value": "3807758" }
             ],
@@ -286,11 +290,11 @@
             },
             "benefits_title": "Our Advantages",
             "benefits": [
-                { "title": "Flexible Pricing System", "description": "We approach price offers effectively, considering specific needs, delivery schedules, and purchase volumes.", "icon": "images/ukrgaztekhproekt/icons/priceflexbility_icon.png" },
-                { "title": "Convenient Payment Terms", "description": "We understand that every company has its own payment calendar, so we discuss a personal payment mechanism with each Client.", "icon": "images/ukrgaztekhproekt/icons/payway_icon.png" },
-                { "title": "Timely Delivery", "description": "We are convinced that business must operate continuously, so we supply the necessary volume of resources on time.", "icon": "images/ukrgaztekhproekt/icons/transportation_icon.png" },
-                { "title": "High Product Quality", "description": "We offer high-quality resources, confirmed by cooperation with reliable manufacturers (certificates, specifications).", "icon": "images/ukrgaztekhproekt/icons/quality_icon.png" },
-                { "title": "Wide Assortment", "description": "We offer several options of finished products and help you make the optimal choice for your tasks.", "icon": "images/ukrgaztekhproekt/icons/offerings_icon.png" }
+                { "title": "Flexible Pricing System", "description": "We approach price offers effectively, considering specific needs, delivery schedules, and purchase volumes.", "icon": "images/ukrgaztekhproekt/icons/priceflexbility_icon_without_background.png", "bg": "images/ukrgaztekhproekt/flexible_pricing_system_background.png" },
+                { "title": "Convenient Payment Terms", "description": "We understand that every company has its own payment calendar, so we discuss a personal payment mechanism with each Client.", "icon": "images/ukrgaztekhproekt/icons/payway_icon.png", "bg": "images/ukrgaztekhproekt/pricing_background.png"  },
+                { "title": "Timely Delivery", "description": "We are convinced that business must operate continuously, so we supply the necessary volume of resources on time.", "icon": "images/ukrgaztekhproekt/icons/transportation_icon.png", "bg": "images/ukrgaztekhproekt/transportation_background.png"  },
+                { "title": "High Product Quality", "description": "We offer high-quality resources, confirmed by cooperation with reliable manufacturers (certificates, specifications).", "icon": "images/ukrgaztekhproekt/icons/quality_icon.png", "bg": "images/ukrgaztekhproekt/high_poduct_quality_background.png"  },
+                { "title": "Wide Assortment", "description": "We offer several options of finished products and help you make the optimal choice for your tasks.", "icon": "images/ukrgaztekhproekt/icons/offerings_icon.png", "bg": "images/ukrgaztekhproekt/offerings_background.png"  }
             ],
             "directions_title": "Areas of Activity",
             "directions": {
@@ -319,6 +323,7 @@
             "contact_details": [
                 { "label": "Address", "value": "Kyiv, Pidhirna/Tatarska St, Building 3/7" },
                 { "label": "Phone", "value": "+380983410698" },
+                { "label": "E-Mail", "value": "office@ukrgaztekhproekt.com.ua" },
                 { "label": "EDRPOU", "value": "36215848" }, 
                 { "label": "MFO", "value": "3807758" }
             ],
@@ -342,9 +347,14 @@
         const modalBody = document.getElementById('modal-body');
         const modalCloseBtn = document.getElementById('modal-close-btn');
 
-        const openModal = (title, body) => {
+        const openModal = (title, body, bgImage) => {
             modalTitle.textContent = title.replace('...', '');
             modalBody.textContent = body;
+            
+            if (bgImage) {
+                modalContent.style.backgroundImage = `url('${bgImage}')`;
+            }
+
             modal.classList.remove('hidden');
             document.body.classList.add('modal-open');
             setTimeout(() => {
@@ -420,27 +430,74 @@
             const aboutData = siteContent.about;
             if(aboutData) {
                 const historyHtml = aboutData.history_content.map(p => `<p class="text-left">${p}</p>`).join('');
-                const interactiveItems = [ { id: 'mission-trigger', data: aboutData.mission }, { id: 'goal-trigger', data: aboutData.goal }, { id: 'vision-trigger', data: aboutData.vision } ]
-                    .map(item => `
-                        <div class="flex-1">
-                            <button id="${item.id}" class="pulsing-button w-full text-center justify-center bg-white/50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 hover:bg-white cursor-pointer border border-transparent hover:border-blue-300">
-                                <span class="font-semibold text-lg">${item.data.title}</span>
-                            </button>
+            const interactiveItems = [ 
+                { id: 'mission-trigger', data: aboutData.mission, bg: 'images/ukrgaztekhproekt/background_mision_goal_vision.png' }, 
+                { id: 'goal-trigger', data: aboutData.goal, bg: 'images/ukrgaztekhproekt/background_mision_goal_vision.png' }, 
+                { id: 'vision-trigger', data: aboutData.vision, bg: 'images/ukrgaztekhproekt/background_mision_goal_vision.png' } 
+            ]
+            .map(item => `
+                <div class="flex-1">
+                    <button id="${item.id}" class="pulsing-button w-full flex items-center bg-white/80 backdrop-blur-sm rounded-full p-1 pr-6 shadow-sm hover:shadow-md transition-all duration-300 hover:bg-white cursor-pointer border border-transparent hover:border-blue-200 group">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#205285] flex items-center justify-center text-white shadow-inner group-hover:scale-105 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                            </svg>
                         </div>
-                    `).join('');
+                        <span class="ml-4 font-semibold text-lg text-gray-800 group-hover:text-[#205285] transition-colors">
+                            ${item.data.title}
+                        </span>
+                    </button>
+                </div>
+            `).join('');
                 aboutContainer.innerHTML = `<h2 class="text-2xl font-bold mb-4 text-center">${aboutData.history_title}</h2><div class="space-y-4">${historyHtml}</div><div class="flex flex-col md:flex-row gap-6 mt-8">${interactiveItems}</div>`;
             }
+
+            const openModal = (title, body, bgImage) => {
+                modalTitle.textContent = title.replace('...', '');
+                modalBody.textContent = body;
+                
+                if (bgImage) {
+                    modalContent.style.backgroundImage = `url('${bgImage}')`;
+                }
+
+                modal.classList.remove('hidden');
+                document.body.classList.add('modal-open');
+                setTimeout(() => {
+                    modalContent.classList.remove('opacity-0', 'scale-95');
+                    modalContent.classList.add('opacity-100', 'scale-100');
+                }, 10);
+            };
+
+            document.getElementById('mission-trigger')?.addEventListener('click', (e) => {
+                const bg = e.currentTarget.getAttribute('data-bg');
+                openModal(siteContent.about.mission.title, siteContent.about.mission.content, bg);
+            });
+            document.getElementById('goal-trigger')?.addEventListener('click', (e) => {
+                const bg = e.currentTarget.getAttribute('data-bg');
+                openModal(siteContent.about.goal.title, siteContent.about.goal.content, bg);
+            });
+            document.getElementById('vision-trigger')?.addEventListener('click', (e) => {
+                const bg = e.currentTarget.getAttribute('data-bg');
+                openModal(siteContent.about.vision.title, siteContent.about.vision.content, bg);
+            });
 
             // Benefits
             const benefitsContainer = document.getElementById('benefits-container');
             if (siteContent.benefits) {
                 const benefitsHtml = siteContent.benefits.map((benefit, index) => `
-                    <div class="reveal-on-scroll text-center p-6 bg-white rounded-lg shadow-lg flex flex-col w-full md:w-[45%] lg:w-[40%]" style="transition-delay: ${index * 100}ms;">
-                        <div class="flex-shrink-0 flex justify-center items-center mb-4 w-20 h-20 mx-auto">
-                           <img src="${benefit.icon}" alt="${benefit.title}" class="w-20 h-20 object-contain">
+                    <div class="reveal-on-scroll relative overflow-hidden text-center p-8 rounded-xl shadow-lg flex flex-col w-full md:w-[45%] lg:w-[30%] min-h-[300px]" 
+                        style="transition-delay: ${index * 100}ms;">
+                        
+                        <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center transition-transform duration-500 hover:scale-110" 
+                            style="background-image: url('${benefit.bg || ''}');"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex-shrink-0 flex justify-center items-center mb-6 w-20 h-20 mx-auto ">
+                            <img src="${benefit.icon}" alt="${benefit.title}" class="w-25 h-25 object-contain">
+                            </div>
+                            <h4 class="text-xl font-bold mb-4 text-black-800">${benefit.title}</h4>
+                            <p class="text-gray-750 font-medium">${benefit.description}</p>
                         </div>
-                        <h4 class="text-xl font-bold mb-3 text-blue">${benefit.title}</h4>
-                        <p class="text-slate-600">${benefit.description}</p>
                     </div>
                 `).join('');
                 benefitsContainer.innerHTML = `<div class="text-center reveal-on-scroll"><h2 class="text-3xl font-bold mb-2" data-translate="benefits_title">${siteContent.benefits_title}</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-12"></div></div><div class="flex flex-wrap justify-center gap-8">${benefitsHtml}</div>`;
